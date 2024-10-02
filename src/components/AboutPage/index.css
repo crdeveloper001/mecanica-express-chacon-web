@@ -1,0 +1,16 @@
+.Descriptions {
+    font-family: 'open sans';
+    font-size: 25px;
+    text-align: justify;
+    color: black;
+
+}
+
+.TitleAbout {
+    margin-top: 10rem;
+    font-weight: 1000;
+    font-style: italic;
+    color: rgb(255, 49, 49);
+    font-kerning: none;
+    text-decoration: none;
+}
