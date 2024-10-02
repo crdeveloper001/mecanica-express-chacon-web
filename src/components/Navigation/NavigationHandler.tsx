@@ -4,7 +4,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import useResponsiveNavBar from './hooks/useResponsiveNavbar';
 import Avatar from '@mui/material/Avatar';
@@ -60,7 +59,7 @@ const NavigationHandler: React.FC = () => {
                         {pages.map((page) => (
                             <Button
                                 key={page.name}
-                                onClick={() => handleLinkClick(page.title, page?.href)}
+                                onClick={() => handleLinkClick(page.title)}
                                 sx={{
                                     my: 2,
                                     mx: 1.5,
@@ -96,7 +95,7 @@ const NavigationHandler: React.FC = () => {
                         >
                             <List>
                                 {pages.map((page) => (
-                                    <ListItem button key={page.name} onClick={() => handleLinkClick(page.title, page.href)}>
+                                    <ListItem key={page.name} onClick={() => handleLinkClick(page.title)}>
                                         <Button sx={{ textAlign: 'left', width: '100%' }}>
                                             {page.name}
                                         </Button>

@@ -2,8 +2,6 @@ import './index.css';
 import NavigationHandler from '../Navigation/NavigationHandler';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import imageBack from '../../assets/images/InitialPageBackground.png';
-import PageLogoInitial from '../../assets/images/PageLogo.png';
-import whatspappPhone from '../../assets/images/whatsapp chat simulete.png';
 import { Box, Typography, Button, Grid } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 
