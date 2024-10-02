@@ -69,7 +69,7 @@ const InitialPage = () => {
                                 variant="contained"
                                 color="error"
                                 endIcon={<WhatsAppIcon />}
-                                href="https://wa.link/0q4wcv" // Replace with the actual WhatsApp link
+                                href="https://wa.link/ure23v" // Replace with the actual WhatsApp link
                                 sx={{ mt: 2, fontSize: { xs: '0.8rem', md: '1.2rem' }, padding: { xs: '6px 12px', md: '20px 40px' }, borderRadius: '25px' }}
                             >
                                 SOLICITAR YA

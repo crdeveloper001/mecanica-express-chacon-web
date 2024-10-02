@@ -85,7 +85,7 @@ const AboutPage = () => {
                             variant="contained"
                             color="error"
                             sx={{ fontSize: 25, borderRadius: 25 }}
-                            href="https://wa.link/0q4wcv"
+                            href="https://wa.link/ure23v"
                         >
                             AGENDAR CITA YA
                             <Avatar src={iconWhatsapp} sx={{ marginLeft: 2.3 }} />
