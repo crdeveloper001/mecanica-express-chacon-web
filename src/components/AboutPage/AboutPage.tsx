@@ -1,18 +1,34 @@
+
 import './index.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Button, Container, Typography, styled, Avatar, Stack } from '@mui/material';
-import Paper from '@mui/material/Paper';
+import { Button, Container, Typography, styled, Avatar, Stack, Card } from '@mui/material';
 import TickIcon from '../../assets/images/tick.png';
 import iconWhatsapp from '../../assets/images/whatsapp.png';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
+const Item = styled(Card)(({ theme }) => ({
+    backgroundColor: "#fff",
+    ...theme.typography.body1,
+    textAlign: "center",
     color: theme.palette.text.secondary,
-    ...theme.applyStyles('dark', {
-        backgroundColor: '#1A2027',
+    padding: theme.spacing(2),
+
+    // Define styles for different breakpoints
+    [theme.breakpoints.up("xs")]: {
+        maxWidth: "90%",
+        margin: "0 auto",
+    },
+    [theme.breakpoints.up("sm")]: {
+        maxWidth: "75%",
+    },
+    [theme.breakpoints.up("md")]: {
+        maxWidth: "60%",
+    },
+    [theme.breakpoints.up("lg")]: {
+        maxWidth: "50%",
+    },
+
+    ...theme.applyStyles("dark", {
+        backgroundColor: "#1A2027",
     }),
 }));
 
@@ -26,7 +42,7 @@ const AboutPage = () => {
                     <meta name="keywords" content="Mecánica, Asistencia en carretera, Compromiso, Confianza, Servicio Automotriz" />
                 </Helmet>
 
-                <Container style={{ maxWidth: '75%' }}>
+                <Container style={{ maxWidth: '100%' }}>
                     <Typography variant="h1" align="center" mt={5} mb={5} color="error">
                         Porque nosotros?
                     </Typography>
