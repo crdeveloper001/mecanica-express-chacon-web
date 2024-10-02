@@ -1,4 +1,4 @@
-import { Stack, Grid, Card, CardContent, CardMedia, Typography, Box } from "@mui/material"
+import { Grid, Card, CardContent, CardMedia, Typography, Box } from "@mui/material"
 import ToolIcon from '../../assets/images/repairing-service.png'
 import './index.css'
 const QuickServicesPage = () => {
