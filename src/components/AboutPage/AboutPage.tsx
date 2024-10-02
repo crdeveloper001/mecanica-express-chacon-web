@@ -43,14 +43,14 @@ const AboutPage = () => {
                 </Helmet>
 
 
-                <Typography variant="h1" align="center" mt={5} mb={5} color="error">
-                    Porque nosotros?
+                <Typography variant="h3" align="center" mt={5} mb={5} color="red" fontStyle={'italic'} fontWeight={'bold'}>
+                    Porque nosotros
                 </Typography>
                 <Stack
                     direction={{ xs: 'column', md: 'row', sm: 'row' }}
                     spacing={{ xs: 1, sm: 10, md: 20 }}
                 >
-                    <Item>
+                    <Item data-aos="zoom-in" data-aos-delay="500">
                         <img
                             alt="trust"
                             src={TickIcon}
@@ -66,7 +66,7 @@ const AboutPage = () => {
                             permiten ofrecer soluciones efectivas y personalizadas para cada situación.
                         </p>
                     </Item>
-                    <Item>
+                    <Item data-aos="zoom-in" data-aos-delay="500">
                         <img
                             alt="trust"
                             src={TickIcon}
@@ -84,14 +84,14 @@ const AboutPage = () => {
                         <Button
                             variant="contained"
                             color="error"
-                            sx={{ fontSize: 30, borderRadius: 25 }}
+                            sx={{ fontSize: 25, borderRadius: 25 }}
                             href="https://wa.link/0q4wcv"
                         >
                             AGENDAR CITA YA
                             <Avatar src={iconWhatsapp} sx={{ marginLeft: 2.3 }} />
                         </Button>
                     </Item>
-                    <Item>
+                    <Item data-aos="zoom-in" data-aos-delay="500">
                         <img
                             alt="trust"
                             src={TickIcon}

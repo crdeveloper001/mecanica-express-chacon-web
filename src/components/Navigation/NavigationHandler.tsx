@@ -28,11 +28,11 @@ const NavigationHandler: React.FC = () => {
             <Helmet>
                 <title>{currentTitle}</title>
             </Helmet>
-            <AppBar position="relative" color='default'>
+            <AppBar position="sticky" color='default'  >
 
-                <Toolbar disableGutters>
+                <Toolbar disableGutters >
                     {/* Logo on the left */}
-                    <Avatar src={LogoPage} alt="Logo" sx={{ width: 200, height: 100, ml: 0 }} />
+                    <Avatar src={LogoPage} alt="Logo" sx={{ width: 'auto', height: 100, ml: 0 }} />
                     <Typography
                         variant="h6"
                         noWrap

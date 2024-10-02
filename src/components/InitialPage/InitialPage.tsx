@@ -34,11 +34,13 @@ const InitialPage = () => {
                     <Grid item xs={12} md={6}>
                         <Box>
                             <Typography
+                                data-aos="fade-right"
+                                data-aos-delay="500"
                                 variant="h4"
                                 component="h1"
                                 sx={{
                                     fontWeight: 'bold',
-                                    fontSize: { xs: '2rem', md: '7rem' },
+                                    fontSize: { xs: '3rem', md: '7rem' },
                                     fontStyle: 'italic',
                                     fontFamily: "'Barlow Condensed', sans-serif",
                                 }}
@@ -46,6 +48,8 @@ const InitialPage = () => {
                                 ASISTENCIA EN CARRETERA
                             </Typography>
                             <Typography
+                                data-aos="fade-up"
+                                data-aos-delay="500"
                                 variant="h4"
                                 component="h1"
                                 sx={{
@@ -60,21 +64,19 @@ const InitialPage = () => {
                                 SIEMPRE A TU LADO
                             </Typography>
                             <Button
+                                data-aos="fade-left"
+                                data-aos-delay="500"
                                 variant="contained"
                                 color="error"
                                 endIcon={<WhatsAppIcon />}
                                 href="https://wa.link/0q4wcv" // Replace with the actual WhatsApp link
-                                sx={{ mt: 2, fontSize: { xs: '0.8rem', md: '1.2rem' }, padding: { xs: '6px 12px', md: '8px 16px' }, borderRadius: '25px' }}
+                                sx={{ mt: 2, fontSize: { xs: '0.8rem', md: '1.2rem' }, padding: { xs: '6px 12px', md: '20px 40px' }, borderRadius: '25px' }}
                             >
                                 SOLICITAR YA
                             </Button>
 
                         </Box>
                     </Grid>
-
-                    {/* <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-start' }}>
-
-                    </Grid> */}
                 </Grid>
             </Box>
         </>

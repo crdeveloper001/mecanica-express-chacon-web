@@ -1,16 +1,13 @@
 import AboutPage from '../AboutPage/AboutPage'
 import InitialPage from '../InitialPage/InitialPage'
-import Container from '@mui/material/Container'
+import QuickServicesPage from '../QuickServicesPage/QuickServicesPage'
 
 const LandingPageHandler = () => {
     return (
         <>
-
-            <Container disableGutters style={{ maxWidth: '100%' }}>
-                <InitialPage />
-                <AboutPage />
-            </Container>
-
+            <InitialPage />
+            <AboutPage />
+            <QuickServicesPage />
         </>
     )
 }
