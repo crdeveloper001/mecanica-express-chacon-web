@@ -1,7 +1,7 @@
 
 import './index.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Button, Container, Typography, styled, Avatar, Stack, Card } from '@mui/material';
+import { Button, Typography, styled, Avatar, Stack, Card } from '@mui/material';
 import TickIcon from '../../assets/images/tick.png';
 import iconWhatsapp from '../../assets/images/whatsapp.png';
 
