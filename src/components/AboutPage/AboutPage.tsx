@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import './index.css';
-import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Grid, Button, Container, Typography, styled, Avatar, Stack } from '@mui/material';
+import { Button, Container, Typography, styled, Avatar, Stack } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import TickIcon from '../../assets/images/tick.png';
 import iconWhatsapp from '../../assets/images/whatsapp.png';
