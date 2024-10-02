@@ -42,74 +42,74 @@ const AboutPage = () => {
                     <meta name="keywords" content="Mecánica, Asistencia en carretera, Compromiso, Confianza, Servicio Automotriz" />
                 </Helmet>
 
-                <Container style={{ maxWidth: '100%' }}>
-                    <Typography variant="h1" align="center" mt={5} mb={5} color="error">
-                        Porque nosotros?
-                    </Typography>
-                    <Stack
-                        direction={{ xs: 'column', md: 'row', sm: 'row' }}
-                        spacing={{ xs: 1, sm: 10, md: 20 }}
-                    >
-                        <Item>
-                            <img
-                                alt="trust"
-                                src={TickIcon}
-                                style={{ width: 150, height: 'auto', justifyItems: 'center', marginBottom: '30px' }}
-                            />
-                            <Typography variant="h4" color="initial">
-                                COMPROMISO Y CONFIANZA
-                            </Typography>
-                            <p className="Descriptions">
-                                En Mecánica Express Chacón, entendemos lo importante que es tu vehículo para ti. Por eso,
-                                nuestro compromiso es brindarte un servicio rápido, seguro y confiable, para que puedas volver
-                                a la carretera sin preocupaciones. Nuestra experiencia y pasión por la mecánica automotriz nos
-                                permiten ofrecer soluciones efectivas y personalizadas para cada situación.
-                            </p>
-                        </Item>
-                        <Item>
-                            <img
-                                alt="trust"
-                                src={TickIcon}
-                                style={{ width: 150, height: 'auto', justifyItems: 'center', marginBottom: '30px' }}
-                            />
-                            <Typography variant="h4" color="initial">
-                                RESPUESTA INMEDIATA
-                            </Typography>
-                            <p className="Descriptions">
-                                Ofrecemos asistencia en carretera cuando más lo necesitas. Ya sea que te enfrentes a una avería
-                                inesperada o simplemente necesites ayuda con un cambio de neumáticos, nuestro equipo está
-                                siempre listo para atenderte de forma inmediata y llevar la tranquilidad a tu camino. Estamos
-                                disponibles 24/7 para asegurarnos de que nunca estés solo.
-                            </p>
-                            <Button
-                                variant="contained"
-                                color="error"
-                                sx={{ fontSize: 30, borderRadius: 25 }}
-                                href="https://wa.link/0q4wcv"
-                            >
-                                AGENDAR CITA YA
-                                <Avatar src={iconWhatsapp} sx={{ marginLeft: 2.3 }} />
-                            </Button>
-                        </Item>
-                        <Item>
-                            <img
-                                alt="trust"
-                                src={TickIcon}
-                                style={{ width: 150, height: 'auto', justifyItems: 'center', marginBottom: '30px' }}
-                            />
-                            <Typography variant="h4" color="initial">
-                                SERVICIO INTEGRAL Y PROFESIONALISMO
-                            </Typography>
-                            <p className="Descriptions">
-                                Nuestro equipo está formado por expertos altamente capacitados que entienden todas las
-                                necesidades de tu vehículo, desde el mantenimiento regular hasta reparaciones complejas. Nos
-                                destacamos por nuestro enfoque integral, cuidando cada detalle y ofreciéndote transparencia y
-                                honestidad en cada servicio. En Mecánica Express Chacón, tu seguridad y satisfacción son
-                                nuestras prioridades.
-                            </p>
-                        </Item>
-                    </Stack>
-                </Container>
+
+                <Typography variant="h1" align="center" mt={5} mb={5} color="error">
+                    Porque nosotros?
+                </Typography>
+                <Stack
+                    direction={{ xs: 'column', md: 'row', sm: 'row' }}
+                    spacing={{ xs: 1, sm: 10, md: 20 }}
+                >
+                    <Item>
+                        <img
+                            alt="trust"
+                            src={TickIcon}
+                            style={{ width: 150, height: 'auto', justifyItems: 'center', marginBottom: '30px' }}
+                        />
+                        <Typography variant="h4" color="initial">
+                            COMPROMISO Y CONFIANZA
+                        </Typography>
+                        <p className="Descriptions">
+                            En Mecánica Express Chacón, entendemos lo importante que es tu vehículo para ti. Por eso,
+                            nuestro compromiso es brindarte un servicio rápido, seguro y confiable, para que puedas volver
+                            a la carretera sin preocupaciones. Nuestra experiencia y pasión por la mecánica automotriz nos
+                            permiten ofrecer soluciones efectivas y personalizadas para cada situación.
+                        </p>
+                    </Item>
+                    <Item>
+                        <img
+                            alt="trust"
+                            src={TickIcon}
+                            style={{ width: 150, height: 'auto', justifyItems: 'center', marginBottom: '30px' }}
+                        />
+                        <Typography variant="h4" color="initial">
+                            RESPUESTA INMEDIATA
+                        </Typography>
+                        <p className="Descriptions">
+                            Ofrecemos asistencia en carretera cuando más lo necesitas. Ya sea que te enfrentes a una avería
+                            inesperada o simplemente necesites ayuda con un cambio de neumáticos, nuestro equipo está
+                            siempre listo para atenderte de forma inmediata y llevar la tranquilidad a tu camino. Estamos
+                            disponibles 24/7 para asegurarnos de que nunca estés solo.
+                        </p>
+                        <Button
+                            variant="contained"
+                            color="error"
+                            sx={{ fontSize: 30, borderRadius: 25 }}
+                            href="https://wa.link/0q4wcv"
+                        >
+                            AGENDAR CITA YA
+                            <Avatar src={iconWhatsapp} sx={{ marginLeft: 2.3 }} />
+                        </Button>
+                    </Item>
+                    <Item>
+                        <img
+                            alt="trust"
+                            src={TickIcon}
+                            style={{ width: 150, height: 'auto', justifyItems: 'center', marginBottom: '30px' }}
+                        />
+                        <Typography variant="h4" color="initial">
+                            SERVICIO INTEGRAL Y PROFESIONALISMO
+                        </Typography>
+                        <p className="Descriptions">
+                            Nuestro equipo está formado por expertos altamente capacitados que entienden todas las
+                            necesidades de tu vehículo, desde el mantenimiento regular hasta reparaciones complejas. Nos
+                            destacamos por nuestro enfoque integral, cuidando cada detalle y ofreciéndote transparencia y
+                            honestidad en cada servicio. En Mecánica Express Chacón, tu seguridad y satisfacción son
+                            nuestras prioridades.
+                        </p>
+                    </Item>
+                </Stack>
+
             </>
         </HelmetProvider>
     );
