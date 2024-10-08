@@ -75,7 +75,7 @@ const InitialPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElem
                                         display: 'flex',
                                     }}
                                 >
-                                    <Typography variant="subtitle1" color="white" sx={{ marginTop: '15px' }}>SOLICITAR YA</Typography>
+                                    <Typography variant="h5" color="white" sx={{ marginTop: '0.1rem', fontWeight: 'bold' }}>SOLICITAR YA</Typography>
                                 </Button>
                             </Box>
                         </Grid>

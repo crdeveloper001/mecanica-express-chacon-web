@@ -1,11 +1,10 @@
-
-
 import React from 'react';
 import Slider from 'react-slick';
 import { Helmet } from 'react-helmet-async';
 import { Card, CardContent, Typography, Box, CardMedia } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './index.css'
 import image1 from '../../assets/images/cars/inyeccion.png';
 import image2 from '../../assets/images/cars/enfriamiento.png';
 import image3 from '../../assets/images/cars/afinamientoMotor.png';
@@ -78,9 +77,11 @@ const ServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                     <meta name="robots" content="index,follow" />
                     <link rel="canonical" href="https://www.mecánicaexpresschacon.com/servicios" />
                 </Helmet>
-
-                <Typography variant="h2" color="error" align='center' sx={{ marginTop: '20px' }}>Servicios Especializados</Typography>
-                <Box sx={{ padding: 2 }}>
+                <div className="DividerSection"></div>
+                <Box sx={{ padding: 2, marginTop: 10 }}>
+                    <Typography variant="h4" color="error" align="center" fontStyle={'italic'} fontWeight={'bold'} >
+                        SERVICIOS ESPECIALIZADOS
+                    </Typography>
                     <Slider {...settings}>
                         {mechanicServices.map((service) => (
                             <Card key={service.id} sx={{ ...cardStyle, height: '350px', width: '300px' }}>
@@ -100,7 +101,7 @@ const ServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                         ))}
                     </Slider>
                 </Box>
-
+                <div className="DividerSection" style={{ marginTop: 15 }}></div>
             </div>
 
 

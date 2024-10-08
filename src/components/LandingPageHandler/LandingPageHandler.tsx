@@ -4,6 +4,8 @@ import InitialPage from '../InitialPage/InitialPage';
 import NavigationHandler from '../Navigation/NavigationHandler';
 import QuickServicesPage from '../QuickServicesPage/QuickServicesPage';
 import ServicesPage from '../ServicesPage/ServicesPage';
+import ClientsPage from '../ClientsPage/ClientsPage';
+import ContactUs from '../ContactPage/ContactUs';
 
 const LandingPageHandler = () => {
     const initialPageRef = useRef(null);
@@ -29,6 +31,9 @@ const LandingPageHandler = () => {
             <QuickServicesPage ref={quickServicesRef} />
             <br />
             <ServicesPage ref={especialServicesRef} />
+            <br />
+            <ClientsPage ref={clientRef} />
+            <ContactUs ref={contactUsRef} />
         </>
     );
 };

@@ -40,10 +40,11 @@ const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
                     <meta name="robots" content="index,follow" />
                 </Helmet>
                 <div className="DividerSection"></div>
-                <Typography variant="h3" color="error" align="center" fontStyle={'italic'} fontWeight={'bold'} mt={5}>
-                    SERVICIOS RÁPIDOS
-                </Typography>
-                <Box sx={{ padding: 2 }}>
+
+                <Box sx={{ padding: 2, marginTop: 10 }}>
+                    <Typography variant="h4" color="error" align="center" fontStyle={'italic'} fontWeight={'bold'} mt={5}>
+                        SERVICIOS RÁPIDOS
+                    </Typography>
                     <Grid container spacing={2} justifyContent="center">
                         {[
                             {

@@ -1,0 +1,45 @@
+.contact-root {
+    background-image: url('../../assets/images/workshop/ContactUs.png');
+    background-size: cover;
+    position: static;
+    background-position: center;
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 32px;
+    /* Equivalent to theme.spacing(4) */
+}
+
+.contact-item {
+    text-align: center;
+    padding: 16px;
+    /* Equivalent to theme.spacing(2) */
+}
+
+.contact-title {
+    color: #e53935;
+    /* Red color for titles */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    /* Equivalent to theme.spacing(1) */
+}
+
+.contact-content {
+    color: #fff;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 600px) {
+    .contact-item {
+        text-align: center;
+    }
+}

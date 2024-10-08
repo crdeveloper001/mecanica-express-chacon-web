@@ -71,7 +71,7 @@ const AboutPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElemen
                 </Helmet>
 
                 <div ref={ref}>
-                    <Typography variant="h3" align="center" mt={5} color="red" fontStyle='italic' fontWeight='bold'>
+                    <Typography variant="h4" align="center" mt={5} color="red" fontStyle='italic' fontWeight='bold'>
                         Porque nosotros
                     </Typography>
 

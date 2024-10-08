@@ -9,7 +9,7 @@ function App() {
     <>
 
       <Box
-        sx={{ position: 'sticky' }}
+        sx={{ position: 'relative' }}
       >
         <LandingPageHandler />
       </Box>

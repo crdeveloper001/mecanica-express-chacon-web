@@ -1,9 +1,71 @@
+import React from 'react';
+import { Card, CardContent, Typography, Grid, Avatar, Box, Container } from '@mui/material';
+import customerIcon from '../../assets/images/icons/customer.png'
 
+const reviews = [
+    {
+        name: "Claudio Gonzalez",
+        review: "Excelente servicio, ofrecen servicios de alta calidad y con una buena comunicacion, y el mecanico Jefry es muy profesional y eficiente con la solucion al problema",
 
-const ClientsPage = () => {
-    return (
-        <div>ClientsPage</div>
-    )
-}
+    },
+    {
+        name: "Luis García",
+        review: "Excelente servicio. Llegaron en menos de 20 minutos y arreglaron el problema en mi coche rápidamente. Muy recomendados para cualquier emergencia en carretera.",
 
-export default ClientsPage
+    },
+    {
+        name: "María Fernández",
+        review: "El servicio de mecánica rápida es increíble. Mi auto no encendía y en cuestión de minutos me resolvieron el problema. 100% recomendable",
+
+    },
+    {
+        name: "Ana Pérez",
+        review: "Gran servicio de emergencia en carretera. Llegaron mucho más rápido de lo que esperaba y solucionaron todo sin complicaciones. Totalmente satisfecho",
+
+    },
+    {
+        name: "Jorge Ramírez",
+        review: "Nunca había tenido un servicio tan rápido y eficiente. Desde la llamada hasta la reparación, todo fue perfecto. ¡Me salvaron el día!",
+
+    },
+    {
+        name: "Pedro Martínez",
+        review: "La asistencia en carretera fue de primera. El mecánico identificó y solucionó el problema de mi coche en poco tiempo. Gran experiencia y buen precio",
+
+    },
+    // Add more reviews as needed
+];
+
+const ClientsPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
+    (_props, ref) => {
+        return (
+            <div ref={ref}>
+                <Container fixed sx={{ padding: '2rem', marginTop: 10 }}>
+                    <Typography variant="h4" gutterBottom textAlign="center">
+                        NUESTROS CLIENTES Y REVIEWS
+                    </Typography>
+                    <Grid container spacing={3}>
+                        {reviews.map((review, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card sx={{ height: '100%' }}>
+                                    <CardContent>
+                                        <Box display="flex" alignItems="center" mb={2}>
+                                            <Avatar src={customerIcon} alt={review.name} sx={{ mr: 2 }} />
+                                            <Typography variant="h6">{review.name}</Typography>
+                                        </Box>
+                                        <Typography variant="body2" color="textSecondary">
+                                            {review.review}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </div>
+
+        );
+
+    });
+
+export default ClientsPage;
