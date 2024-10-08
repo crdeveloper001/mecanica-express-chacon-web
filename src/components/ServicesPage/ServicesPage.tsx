@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 
 import React from 'react';
 import Slider from 'react-slick';
@@ -35,7 +35,7 @@ const cardStyle = {
 };
 
 const ServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
-    (props, ref) => {
+    (_props, ref) => {
         const settings = {
             dots: true,
             infinite: true,
