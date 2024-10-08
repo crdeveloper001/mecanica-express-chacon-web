@@ -22,7 +22,7 @@ const cardMediaStyle = {
     marginRight: 'auto',
 };
 const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
-    (props, ref) => {
+    (_props, ref) => {
 
         return (
 
@@ -83,7 +83,7 @@ const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
                                         component="img"
                                         alt={`Image ${index + 1}`}
                                         image={ToolIcon}
-                                        style={cardMediaStyle}
+                                        sx={cardMediaStyle}
                                     />
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="h2" color="red" align="center">

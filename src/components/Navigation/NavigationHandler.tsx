@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,8 +20,8 @@ const pages = [
     { name: 'Clientes', title: 'Clientes - Mecánica Express Chacón', description: 'Conoce las historias de nuestros clientes satisfechos.' },
     { name: 'Contáctanos', title: 'Contáctanos - Mecánica Express Chacón', description: 'Estamos aquí para ayudarte. Contáctanos para más información.' },
 ];
-
-const NavigationHandler = ({ refs }) => {
+/* eslint-disable */
+const NavigationHandler = ({ refs }: { refs: any }) => {
     const { currentTitle, drawerOpen, toggleDrawer } = useResponsiveNavBar();
 
     // Find the current page based on title
