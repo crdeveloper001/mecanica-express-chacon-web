@@ -61,7 +61,7 @@ const sections: Section[] = [
 ];
 
 const AboutPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
-    (props, ref) => {
+    (_props, ref) => {
         return (
             <HelmetProvider>
                 <Helmet>

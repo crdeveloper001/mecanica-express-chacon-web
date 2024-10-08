@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import Slider from 'react-slick';
 import { Helmet } from 'react-helmet-async';

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Grid, Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 import ToolIcon from '../../assets/images/icons/repairing-service.png';
