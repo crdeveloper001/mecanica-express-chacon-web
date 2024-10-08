@@ -1,4 +1,3 @@
-import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -7,24 +6,32 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import useResponsiveNavBar from './hooks/useResponsiveNavbar';
 import Avatar from '@mui/material/Avatar';
-import LogoPage from '../../assets/images/PageLogo.png';
+import LogoPage from '../../assets/images/icons/PageLogo.png';
 import { Helmet } from 'react-helmet-async';
 import { Button, Drawer, List, ListItem } from '@mui/material';
 
 const pages = [
-    { name: 'Inicio', href: '#inicio', title: 'Inicio - Mecánica Express Chacón', description: 'Bienvenido a Mecánica Express Chacón, su solución para servicios automotrices.' },
-    { name: 'Acerca', href: '#acerca', title: 'Acerca - Mecánica Express Chacón', description: 'Conoce más sobre Mecánica Express Chacón y nuestro compromiso con la calidad.' },
-    { name: 'Servicios', href: '#servicios', title: 'Servicios - Mecánica Express Chacón', description: 'Descubre todos los servicios que ofrecemos para tu vehículo.' },
-    { name: 'Servicios Automotrices', href: '#servicios-especializados', title: 'Servicios Especializados - Mecánica Express Chacón', description: 'Explora nuestros servicios especializados para el cuidado de tu vehículo.' },
-    { name: 'Clientes', href: '#clientes', title: 'Clientes - Mecánica Express Chacón', description: 'Conoce las historias de nuestros clientes satisfechos.' },
-    { name: 'Contáctanos', href: '#contactanos', title: 'Contáctanos - Mecánica Express Chacón', description: 'Estamos aquí para ayudarte. Contáctanos para más información.' },
+    { name: 'Inicio', title: 'Inicio - Mecánica Express Chacón', description: 'Bienvenido a Mecánica Express Chacón, su solución para servicios automotrices.' },
+    { name: 'Acerca', title: 'Acerca - Mecánica Express Chacón', description: 'Conoce más sobre Mecánica Express Chacón y nuestro compromiso con la calidad.' },
+    { name: 'Servicios Rapidos', title: 'Servicios - Mecánica Express Chacón', description: 'Descubre todos los servicios que ofrecemos para tu vehículo.' },
+    { name: 'Servicios Automotrices', title: 'Servicios Especializados - Mecánica Express Chacón', description: 'Explora nuestros servicios especializados para el cuidado de tu vehículo.' },
+    { name: 'Clientes', title: 'Clientes - Mecánica Express Chacón', description: 'Conoce las historias de nuestros clientes satisfechos.' },
+    { name: 'Contáctanos', title: 'Contáctanos - Mecánica Express Chacón', description: 'Estamos aquí para ayudarte. Contáctanos para más información.' },
 ];
 
-const NavigationHandler: React.FC = () => {
-    const { currentTitle, drawerOpen, toggleDrawer, handleLinkClick } = useResponsiveNavBar();
+const NavigationHandler = ({ refs }) => {
+    const { currentTitle, drawerOpen, toggleDrawer } = useResponsiveNavBar();
 
     // Find the current page based on title
     const currentPage = pages.find(page => page.title === currentTitle);
+
+    // Function to handle link click
+    const handleLinkClick = (name: string) => {
+        const ref = refs[name];  // Use name directly to find the corresponding ref
+        if (ref) {
+            ref.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <>
@@ -36,7 +43,6 @@ const NavigationHandler: React.FC = () => {
             </Helmet>
             <AppBar position="sticky" color='default'>
                 <Toolbar disableGutters>
-                    {/* Logo on the left */}
                     <Avatar src={LogoPage} alt="Logo" sx={{ width: 'auto', height: 100, ml: 0 }} />
                     <Typography
                         variant="h6"
@@ -52,17 +58,15 @@ const NavigationHandler: React.FC = () => {
                             textDecoration: 'none',
                             display: { xs: 'none', md: 'flex' },
                         }}
-                    ></Typography>
+                    />
 
-                    {/* Spacer to push buttons to the right */}
                     <Box sx={{ flexGrow: 1 }} />
 
-                    {/* Buttons for larger screens */}
                     <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page.name}
-                                onClick={() => handleLinkClick(page.title)}
+                                onClick={() => handleLinkClick(page.name)}  // Use page.name directly
                                 sx={{
                                     my: 2,
                                     mx: 1.5,
@@ -76,7 +80,6 @@ const NavigationHandler: React.FC = () => {
                         ))}
                     </Box>
 
-                    {/* Drawer Menu Icon for smaller screens */}
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -88,7 +91,6 @@ const NavigationHandler: React.FC = () => {
                         </IconButton>
                     </Box>
 
-                    {/* Drawer */}
                     <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
                         <Box
                             sx={{ width: 250 }}
@@ -98,7 +100,7 @@ const NavigationHandler: React.FC = () => {
                         >
                             <List>
                                 {pages.map((page) => (
-                                    <ListItem key={page.name} onClick={() => handleLinkClick(page.title)}>
+                                    <ListItem key={page.name} onClick={() => handleLinkClick(page.name)}>
                                         <Button sx={{ textAlign: 'left', width: '100%' }}>
                                             {page.name}
                                         </Button>
