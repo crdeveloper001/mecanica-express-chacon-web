@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Card, CardContent, Typography, Box, CardMedia } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './index.css'
+import './index.css';
 import image1 from '../../assets/images/cars/inyeccion.png';
 import image2 from '../../assets/images/cars/enfriamiento.png';
 import image3 from '../../assets/images/cars/afinamientoMotor.png';
@@ -70,16 +70,47 @@ const ServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
 
         return (
             <div ref={ref}>
+                {/* SEO Meta Tags */}
                 <Helmet>
                     <title>Servicios Especializados de Mecánica | Mecánica Express Chacón</title>
                     <meta name="description" content="Conoce nuestros servicios especializados en sistemas de inyección, frenos, lubricación, y más. Garantizamos un mantenimiento completo para tu vehículo." />
                     <meta name="keywords" content="mecánica, inyección, frenos, lubricación, suspensión, mantenimiento automotriz" />
                     <meta name="robots" content="index,follow" />
                     <link rel="canonical" href="https://www.mecánicaexpresschacon.com/servicios" />
+
+                    {/* Schema.org Structured Data */}
+                    <script type="application/ld+json">
+                        {JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Service",
+                            "serviceType": "Automotive Services",
+                            "provider": {
+                                "@type": "Organization",
+                                "name": "Mecánica Express Chacón",
+                                "url": "https://www.mecánicaexpresschacon.com",
+                                "sameAs": [
+                                    "https://www.facebook.com/profile.php?id=100086288028221",
+                                    "https://www.instagram.com/servicio_automotriz_chacon/"
+                                ]
+                            },
+                            "areaServed": {
+                                "@type": "Place",
+                                "name": "San José, Costa Rica"
+                            },
+                            "offers": mechanicServices.map(service => ({
+                                "@type": "Offer",
+                                "name": service.title,
+                                "description": service.description,
+                                "url": "https://www.mecánicaexpresschacon.com/servicios"
+                            }))
+                        })}
+                    </script>
                 </Helmet>
+
+                {/* Services Content */}
                 <div className="DividerSection"></div>
                 <Box sx={{ padding: 2, marginTop: 10 }}>
-                    <Typography variant="h4" color="error" align="center" fontStyle={'italic'} fontWeight={'bold'} >
+                    <Typography variant="h4" color="error" align="center" fontStyle={'italic'} fontWeight={'bold'}>
                         SERVICIOS ESPECIALIZADOS
                     </Typography>
                     <Slider {...settings}>
@@ -103,11 +134,8 @@ const ServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                 </Box>
                 <div className="DividerSection" style={{ marginTop: 15 }}></div>
             </div>
-
-
         );
-
-    });
-
+    }
+);
 
 export default ServicesPage;

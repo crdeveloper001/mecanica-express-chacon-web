@@ -12,6 +12,9 @@ const InitialPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElem
                 <Helmet>
                     <title>Mecánica Express - Asistencia en Carretera</title>
                     <meta name="description" content="Mecánica Express ofrece asistencia en carretera siempre a tu lado. Solicita ayuda ahora!" />
+                    <meta name="keywords" content="asistencia en carretera, mecánica, ayuda mecánica, mecánica express" />
+                    <meta name="robots" content="index,follow" />
+                    <link rel="canonical" href="https://www.mecanicaexpresschacon.com/" />
                 </Helmet>
 
                 <Box
@@ -22,10 +25,10 @@ const InitialPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElem
                         backgroundImage: `url(${imageBack})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
-                        color: '#fff',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'flex-start',
+                        color: '#fff',
                         textAlign: 'left',
                     }}
                 >
@@ -57,7 +60,6 @@ const InitialPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElem
                                         fontSize: { xs: '2rem', md: '7rem' },
                                         fontStyle: 'italic',
                                         fontFamily: "'Barlow Condensed', sans-serif",
-                                        textAlign: 'left',
                                     }}
                                 >
                                     SIEMPRE A TU LADO
@@ -73,9 +75,11 @@ const InitialPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElem
                                     sx={{
                                         borderRadius: '25px',
                                         display: 'flex',
+                                        alignItems: 'center',
+                                        marginTop: '1rem',
                                     }}
                                 >
-                                    <Typography variant="h5" color="white" sx={{ marginTop: '0.1rem', fontWeight: 'bold' }}>SOLICITAR YA</Typography>
+                                    <Typography variant="h5" color="white" sx={{ fontWeight: 'bold' }}>SOLICITAR YA</Typography>
                                 </Button>
                             </Box>
                         </Grid>

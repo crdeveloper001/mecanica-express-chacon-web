@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import ToolIcon from '../../assets/images/icons/repairing-service.png';
 import './index.css';
 import React from "react";
+
 const cardStyle = {
     height: '350px',  // Fixed height for the card
     width: '100%',   // Ensure it fills the grid column
@@ -21,11 +22,11 @@ const cardMediaStyle = {
     marginLeft: 'auto',
     marginRight: 'auto',
 };
+
 const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
     (_props, ref) => {
 
         return (
-
             <div ref={ref}>
                 <Helmet>
                     <title>Mecánica Express Chacón - Servicios Rápidos</title>
@@ -38,6 +39,9 @@ const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
                         content="Mecánica Express Chacón, servicios rápidos, asistencia en carretera, mecánica rápida, reparación de llantas, revisión vehicular"
                     />
                     <meta name="robots" content="index,follow" />
+                    <meta name="author" content="Mecánica Express Chacón" />
+                    <meta name="language" content="es" />
+                    <link rel="canonical" href="https://www.mecanicaexpresschacon.com/servicios-rapidos" />
                 </Helmet>
                 <div className="DividerSection"></div>
 
@@ -82,7 +86,7 @@ const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
                                 <Card sx={cardStyle} data-aos="fade-up" data-aos-duration="2000">
                                     <CardMedia
                                         component="img"
-                                        alt={`Image ${index + 1}`}
+                                        alt={`Servicio rápido ${service.title}`}
                                         image={ToolIcon}
                                         sx={cardMediaStyle}
                                     />
@@ -100,9 +104,8 @@ const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
                     </Grid>
                 </Box>
             </div>
-
         );
-
-    });
+    }
+);
 
 export default QuickServicesPage;
