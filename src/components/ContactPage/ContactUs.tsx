@@ -12,7 +12,7 @@ const ContactUs = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElemen
                     <title>Contáctanos | Mecánica Express Chacón</title>
                     <meta
                         name="description"
-                        content="Contáctenos en Mecánica Express Chacón. Dirección: Cuatro Reinas de Tibas, Urbanización Los Almendros. Teléfono: 506+83662571. Correo electrónico: servicioautomotrizchaconcr@gmail.com"
+                        content="Contáctenos en Mecánica Express Chacón. Dirección: Cuatro Reinas de Tibas, Urbanización Los Almendros. Teléfono: 506+63422141. Correo electrónico: servicioautomotrizchaconcr@gmail.com"
                     />
                     <meta
                         name="keywords"
@@ -35,7 +35,7 @@ const ContactUs = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElemen
                                 "addressCountry": "CR"
                             },
                             "email": "servicioautomotrizchaconcr@gmail.com",
-                            "telephone": "+506 8366 2571",
+                            "telephone": "+506 63422141",
                             "sameAs": [
                                 "https://www.facebook.com/profile.php?id=100086288028221",
                                 "https://www.instagram.com/servicio_automotriz_chacon/"
@@ -43,7 +43,7 @@ const ContactUs = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElemen
                             "url": "https://www.mecanicaexpresschacon.com",
                             "contactPoint": {
                                 "@type": "ContactPoint",
-                                "telephone": "+506 8366 2571",
+                                "telephone": "+506 63422141",
                                 "contactType": "Customer Service"
                             }
                         })}
@@ -69,7 +69,7 @@ const ContactUs = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElemen
                             </Grid>
                             <Grid item xs={12} md={6} className="contact-item">
                                 <Typography className="contact-title">Teléfono</Typography>
-                                <Typography className="contact-content">506+83662571</Typography>
+                                <Typography className="contact-content">506+63422141</Typography>
                             </Grid>
                             <Grid item xs={12} md={6} className="contact-item">
                                 <Typography className="contact-title">Síguenos en redes sociales</Typography>
