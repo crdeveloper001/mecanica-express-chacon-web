@@ -51,7 +51,7 @@ const sections: Section[] = [
         description: "Estamos disponibles 24/7 para asistirte en carretera. Ya sea una avería o un cambio de neumáticos, nuestro equipo está listo para ayudarte de inmediato y llevar tranquilidad a tu camino.",
         button: {
             label: "AGENDAR CITA YA",
-            href: "https://wa.link/ure23v",
+            href: "https://wa.me/message/CFX5E7A5ZSSTA1",
         },
     },
     {
