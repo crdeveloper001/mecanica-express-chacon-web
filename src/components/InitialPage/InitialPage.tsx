@@ -71,7 +71,7 @@ const InitialPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElem
                                     endIcon={
                                         <img src={iconWhatsapp} alt="WhatsApp" style={{ width: '25px', marginLeft: '8px' }} />
                                     }
-                                    href="https://wa.link/ure23v"
+                                    href="https://wa.me/message/CFX5E7A5ZSSTA1"
                                     sx={{
                                         borderRadius: '25px',
                                         display: 'flex',
