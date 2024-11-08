@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Grid, Typography, Box } from '@mui/material';
+import { Container, Grid, Typography, Box, Link } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';  // Importar los íconos de Facebook e Instagram
 import './index.css'; // Import the CSS file
 
 const ContactUs = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
@@ -53,12 +54,12 @@ const ContactUs = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElemen
                 {/* Contact Us Content */}
                 <Box className="contact-root">
                     <Container>
-                        <Typography className="contact-heading">CONTACTANOS</Typography>
+                        <Typography variant='h3' align='center' mb={10}>CONTACTANOS</Typography>
                         <Grid container spacing={4}>
                             <Grid item xs={12} md={6} className="contact-item">
                                 <Typography className="contact-title">Dirección</Typography>
                                 <Typography className="contact-content">
-                                    Cuatro Reinas de Tibas, Urbanización Los Almendros
+                                    Colima de Tibas
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} md={6} className="contact-item">
@@ -73,10 +74,15 @@ const ContactUs = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElemen
                             </Grid>
                             <Grid item xs={12} md={6} className="contact-item">
                                 <Typography className="contact-title">Síguenos en redes sociales</Typography>
-                                <Typography className="contact-content">
-                                    Facebook: Mecánica Express Chacón <br />
-                                    Instagram: servicio_automotriz_chacon
-                                </Typography>
+                                <Box className="social-links">
+                                    <Link href="https://www.facebook.com/profile.php?id=100086288028221" className="social-link" target="_blank" rel="noopener noreferrer">
+                                        <FaFacebook className="social-icon" /> Facebook
+                                    </Link>
+                                    <br />
+                                    <Link href="https://www.instagram.com/servicio_automotriz_chacon/" className="social-link" target="_blank" rel="noopener noreferrer">
+                                        <FaInstagram className="social-icon" /> Instagram
+                                    </Link>
+                                </Box>
                             </Grid>
                         </Grid>
                     </Container>

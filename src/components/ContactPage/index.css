@@ -37,9 +37,49 @@
     color: #fff;
 }
 
-/* Responsive for smaller screens */
+/* Estilo de los enlaces de redes sociales */
+.social-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-link {
+    font-size: 25px;
+    /* Aumenta el tamaño de los enlaces */
+    font-weight: bold;
+    color: #cfddeb;
+    /* Color azul claro */
+    text-decoration: none;
+    margin: 8px;
+    transition: color 0.3s, transform 0.3s;
+    /* Transición suave para el color y el tamaño */
+    display: inline-flex;
+    align-items: center;
+}
+
+.social-link:hover {
+    color: #005bb5;
+    /* Color azul más oscuro en hover */
+    transform: scale(1.1);
+    /* Aumenta el tamaño al pasar el cursor */
+}
+
+/* Estilo para los iconos de las redes sociales */
+.social-icon {
+    font-size: 2rem;
+    /* Tamaño grande para los íconos */
+    margin-right: 10px;
+    /* Espacio entre el ícono y el texto */
+}
+
+/* Responsive para pantallas pequeñas */
 @media (max-width: 600px) {
     .contact-item {
         text-align: center;
+    }
+
+    .social-link {
+        font-size: 1.3rem;
+        /* Reduce ligeramente el tamaño en pantallas pequeñas */
     }
 }
