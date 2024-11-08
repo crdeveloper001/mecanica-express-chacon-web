@@ -6,6 +6,7 @@ import QuickServicesPage from '../QuickServicesPage/QuickServicesPage';
 import ServicesPage from '../ServicesPage/ServicesPage';
 import ClientsPage from '../ClientsPage/ClientsPage';
 import ContactUs from '../ContactPage/ContactUs';
+import FlotingWhatsappButton from '../../utils/FlotingWhatsappButton/FlotingWhatsappButton';
 
 const LandingPageHandler = () => {
     const initialPageRef = useRef(null);
@@ -34,6 +35,7 @@ const LandingPageHandler = () => {
             <br />
             <ClientsPage ref={clientRef} />
             <ContactUs ref={contactUsRef} />
+            <FlotingWhatsappButton />
         </>
     );
 };
