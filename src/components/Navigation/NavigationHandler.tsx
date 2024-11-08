@@ -1,5 +1,4 @@
-
-
+import React, { useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -11,6 +10,8 @@ import Avatar from '@mui/material/Avatar';
 import LogoPage from '../../assets/images/icons/PageLogo.png';
 import { Helmet } from 'react-helmet-async';
 import { Button, Drawer, List, ListItem } from '@mui/material';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const pages = [
     { name: 'Inicio', title: 'Inicio - Mecánica Express Chacón', description: 'Bienvenido a Mecánica Express Chacón, su solución para servicios automotrices.' },
@@ -20,20 +21,21 @@ const pages = [
     { name: 'Clientes', title: 'Clientes - Mecánica Express Chacón', description: 'Conoce las historias de nuestros clientes satisfechos.' },
     { name: 'Contáctanos', title: 'Contáctanos - Mecánica Express Chacón', description: 'Estamos aquí para ayudarte. Contáctanos para más información.' },
 ];
-/* eslint-disable */
-const NavigationHandler = ({ refs }: { refs: any }) => {
-    const { currentTitle, drawerOpen, toggleDrawer } = useResponsiveNavBar();
 
-    // Find the current page based on title
+const socialLinks = [
+    { name: 'Facebook', url: 'https://www.facebook.com/tu-pagina', icon: <FacebookIcon /> },
+    { name: 'Instagram', url: 'https://www.instagram.com/tu-pagina', icon: <InstagramIcon /> },
+];
+
+const NavigationHandler = ({ refs }) => {
+    const { currentTitle, drawerOpen, toggleDrawer, handleLinkClick } = useResponsiveNavBar();
+
     const currentPage = pages.find(page => page.title === currentTitle);
 
-    // Function to handle link click
-    const handleLinkClick = (name: string) => {
-        const ref = refs[name];  // Use name directly to find the corresponding ref
-        if (ref) {
-            ref.current.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+    // Verifica y actualiza el título de la página
+    useEffect(() => {
+
+    }, [currentTitle]);
 
     return (
         <>
@@ -68,7 +70,13 @@ const NavigationHandler = ({ refs }: { refs: any }) => {
                         {pages.map((page) => (
                             <Button
                                 key={page.name}
-                                onClick={() => handleLinkClick(page.name)}  // Use page.name directly
+                                onClick={() => {
+                                    handleLinkClick(page.title);
+                                    const ref = refs[page.name];
+                                    if (ref) {
+                                        ref.current.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
                                 sx={{
                                     my: 2,
                                     mx: 1.5,
@@ -79,6 +87,18 @@ const NavigationHandler = ({ refs }: { refs: any }) => {
                             >
                                 {page.name}
                             </Button>
+                        ))}
+                        {socialLinks.map((social) => (
+                            <IconButton
+                                key={social.name}
+                                component="a"
+                                href={social.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={{ color: 'black', mx: 0.5 }}
+                            >
+                                {social.icon}
+                            </IconButton>
                         ))}
                     </Box>
 
@@ -102,12 +122,28 @@ const NavigationHandler = ({ refs }: { refs: any }) => {
                         >
                             <List>
                                 {pages.map((page) => (
-                                    <ListItem key={page.name} onClick={() => handleLinkClick(page.name)}>
+                                    <ListItem key={page.name} onClick={() => handleLinkClick(page.title)}>
                                         <Button sx={{ textAlign: 'left', width: '100%' }}>
                                             {page.name}
                                         </Button>
                                     </ListItem>
                                 ))}
+                                <ListItem>
+                                    <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                                        {socialLinks.map((social) => (
+                                            <IconButton
+                                                key={social.name}
+                                                component="a"
+                                                href={social.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                sx={{ color: 'black', mx: 0.5 }}
+                                            >
+                                                {social.icon}
+                                            </IconButton>
+                                        ))}
+                                    </Box>
+                                </ListItem>
                             </List>
                         </Box>
                     </Drawer>
