@@ -1,8 +1,11 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid, Avatar, Box, Container } from '@mui/material';
-import { Helmet } from "react-helmet-async"; // Import Helmet for SEO
+import { Card, CardContent, Typography, Avatar, Box, Container } from '@mui/material';
+import { Helmet } from "react-helmet-async";
+import Slider from "react-slick";
 import customerIcon from '../../assets/images/icons/customer.png';
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import './index.css'
 const reviews = [
     {
         name: "Claudio Gonzalez",
@@ -31,6 +34,30 @@ const reviews = [
     // Add more reviews as needed
 ];
 
+const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,            // Habilita el desplazamiento automático
+    autoplaySpeed: 3000,       // Tiempo en milisegundos entre cada desplazamiento (3 segundos)
+    responsive: [
+        {
+            breakpoint: 960,
+            settings: {
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+            }
+        }
+    ]
+};
+
 const ClientsPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
     (_props, ref) => {
         return (
@@ -50,13 +77,13 @@ const ClientsPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElem
                     <meta name="language" content="es" />
                     <link rel="canonical" href="https://www.mecanicaexpresschacon.com/opiniones" />
                 </Helmet>
-                <Container fixed sx={{ padding: '2rem', marginTop: 10 }}>
+                <Container fixed sx={{ padding: '2rem' }}>
                     <Typography variant="h4" gutterBottom textAlign="center">
                         NUESTROS CLIENTES Y REVIEWS
                     </Typography>
-                    <Grid container spacing={3}>
+                    <Slider {...sliderSettings}>
                         {reviews.map((review, index) => (
-                            <Grid item xs={12} sm={6} md={4} key={index}>
+                            <Box key={index} px={2}>
                                 <Card sx={{ height: '100%' }}>
                                     <CardContent>
                                         <Box display="flex" alignItems="center" mb={2}>
@@ -68,9 +95,9 @@ const ClientsPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElem
                                         </Typography>
                                     </CardContent>
                                 </Card>
-                            </Grid>
+                            </Box>
                         ))}
-                    </Grid>
+                    </Slider>
                 </Container>
             </div>
         );

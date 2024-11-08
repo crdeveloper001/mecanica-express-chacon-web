@@ -6,7 +6,7 @@ import './index.css';
 import React from "react";
 
 const cardStyle = {
-    height: '350px',  // Fixed height for the card
+    height: '300px',  // Fixed height for the card
     width: '100%',   // Ensure it fills the grid column
     display: 'flex',
     flexDirection: 'column',
@@ -45,7 +45,7 @@ const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
                 </Helmet>
                 <div className="DividerSection"></div>
 
-                <Box sx={{ padding: 2, marginTop: 10 }}>
+                <Box sx={{ padding: 2 }}>
                     <Typography variant="h4" color="error" align="center" fontStyle={'italic'} fontWeight={'bold'} mt={5}>
                         SERVICIOS RÁPIDOS
                     </Typography>

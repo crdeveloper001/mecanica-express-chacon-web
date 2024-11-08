@@ -27,10 +27,7 @@ const cardStyle = {
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    transition: 'transform 0.2s',
-    '&:hover': {
-        transform: 'scale(1.05)', // Hover effect
-    },
+
 };
 
 const ServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
