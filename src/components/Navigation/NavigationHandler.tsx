@@ -23,19 +23,19 @@ const pages = [
 ];
 
 const socialLinks = [
-    { name: 'Facebook', url: 'https://www.facebook.com/tu-pagina', icon: <FacebookIcon /> },
-    { name: 'Instagram', url: 'https://www.instagram.com/tu-pagina', icon: <InstagramIcon /> },
+    { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=100086288028221', icon: <FacebookIcon /> },
+    { name: 'Instagram', url: 'https://www.instagram.com/servicio_automotriz_chacon/', icon: <InstagramIcon /> },
 ];
 
-const NavigationHandler = ({ refs }) => {
+const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTMLElement>> }) => {
     const { currentTitle, drawerOpen, toggleDrawer, handleLinkClick } = useResponsiveNavBar();
 
-    const currentPage = pages.find(page => page.title === currentTitle);
-
-    // Verifica y actualiza el título de la página
+    // Verifica si currentTitle se actualiza
     useEffect(() => {
-
+        console.log("Current title:", currentTitle);  // Confirma si currentTitle cambia en cada click
     }, [currentTitle]);
+
+    const currentPage = pages.find(page => page.title === currentTitle);
 
     return (
         <>
@@ -71,9 +71,9 @@ const NavigationHandler = ({ refs }) => {
                             <Button
                                 key={page.name}
                                 onClick={() => {
-                                    handleLinkClick(page.title);
+                                    handleLinkClick(page.title);  // Cambia el título
                                     const ref = refs[page.name];
-                                    if (ref) {
+                                    if (ref && ref.current) {
                                         ref.current.scrollIntoView({ behavior: 'smooth' });
                                     }
                                 }}
