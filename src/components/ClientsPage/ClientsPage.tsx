@@ -18,7 +18,7 @@ const ClientReviewsGrid = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
         return (
             <div ref={ref} {...props}>
                 <Helmet>
-                    <title>Opiniones de Clientes | Mecánica Express Chacón</title>
+                    <title>Mecánica Express Chacón | Opiniones de Clientes </title>
                     <meta name="description" content="Descubre las opiniones y experiencias de nuestros clientes con los servicios de Mecánica Express Chacón. Confianza, rapidez y calidad en cada reparación y asistencia en carretera." />
                     <meta name="keywords" content="opiniones clientes, reseñas mecánica, mecánica express, asistencia en carretera, servicio automotriz, reparación de autos, confianza, taller automotriz" />
                     <meta name="robots" content="index,follow" />

@@ -19,7 +19,7 @@ const pages = [
     { name: 'Servicios Automotrices', title: 'Servicios Especializados - Mecánica Express Chacón', description: 'Explora nuestros servicios especializados para el cuidado de tu vehículo.' },
     { name: 'Clientes', title: 'Clientes - Mecánica Express Chacón', description: 'Conoce las historias de nuestros clientes satisfechos.' },
     { name: 'Contáctanos', title: 'Contáctanos - Mecánica Express Chacón', description: 'Estamos aquí para ayudarte. Contáctanos para más información.' },
-    { name: 'Trabajos', title: 'Trabajos - Mecánica Express Chacón', description: 'Conoce algunos de los trabajos de nuestros clientes satisfechos.' }
+    { name: 'Trabajos', title: 'Trabajos - Mecánica Express Chacón', description: 'Conoce algunos de los trabajos de nuestros clientes satisfechos.', message: () => alert("Pagina en construccion") }
 ];
 
 const socialLinks = [
@@ -119,7 +119,7 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
                             <List>
                                 {pages.map((page) => (
                                     <ListItem key={page.name} onClick={() => handleLinkClick(page.title)}>
-                                        <Button sx={{ textAlign: 'left', width: '100%' }}>
+                                        <Button sx={{ textAlign: 'left', width: '100%' }} onClick={page.message}>
                                             {page.name}
                                         </Button>
                                     </ListItem>
