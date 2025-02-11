@@ -52,6 +52,16 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
     },
 }));
 
+interface Section {
+    icon: JSX.Element;
+    title: string;
+    description: string;
+    button?: {
+        label: string;
+        href: string;
+    };
+}
+
 const sections: Section[] = [
     {
         icon: <MdWork size={70}/>,
