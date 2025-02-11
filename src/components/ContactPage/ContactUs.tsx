@@ -1,95 +1,104 @@
 import React from 'react';
 import { Container, Grid, Typography, Box, Link } from '@mui/material';
-import { Helmet } from 'react-helmet-async';
-import { FaFacebook, FaInstagram } from 'react-icons/fa';  // Importar los íconos de Facebook e Instagram
-import './index.css'; // Import the CSS file
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { Helmet } from "react-helmet-async";
+import './index.css';
 
-const ContactUs = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
-    (_props, ref) => {
+const Footer = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
+    (props, ref) => {
         return (
-            <div ref={ref}>
-                {/* SEO Meta Tags */}
+            <Box ref={ref} {...props} component="footer" role="contentinfo" sx={{
+                backgroundColor: '#1a1a1a',
+                color: '#ffffff',
+                py: 4,
+                mt: 5
+            }}>
+                {/* SEO Metadata */}
                 <Helmet>
-                    <title>Contáctanos | Mecánica Express Chacón</title>
-                    <meta
-                        name="description"
-                        content="Contáctenos en Mecánica Express Chacón. Dirección: Cuatro Reinas de Tibas, Urbanización Los Almendros. Teléfono: 506+63422141. Correo electrónico: servicioautomotrizchaconcr@gmail.com"
-                    />
-                    <meta
-                        name="keywords"
-                        content="contacto, mecánica, servicios automotrices, asistencia en carretera, teléfono, correo"
-                    />
-                    <meta name="robots" content="index, follow" />
-
-                    {/* Schema.org Structured Data */}
                     <script type="application/ld+json">
                         {JSON.stringify({
                             "@context": "https://schema.org",
-                            "@type": "AutoRepair",
+                            "@type": "LocalBusiness",
                             "name": "Mecánica Express Chacón",
                             "address": {
                                 "@type": "PostalAddress",
-                                "streetAddress": "Cuatro Reinas de Tibas, Urbanización Los Almendros",
+                                "streetAddress": "Colima de Tibás",
                                 "addressLocality": "San José",
-                                "addressRegion": "San José",
-                                "postalCode": "10101",
-                                "addressCountry": "CR"
+                                "addressCountry": "Costa Rica"
                             },
+                            "telephone": "+506 6342 2141",
                             "email": "servicioautomotrizchaconcr@gmail.com",
-                            "telephone": "+506 63422141",
                             "sameAs": [
                                 "https://www.facebook.com/profile.php?id=100086288028221",
                                 "https://www.instagram.com/servicio_automotriz_chacon/"
-                            ],
-                            "url": "https://www.mecanicaexpresschacon.com",
-                            "contactPoint": {
-                                "@type": "ContactPoint",
-                                "telephone": "+506 63422141",
-                                "contactType": "Customer Service"
-                            }
+                            ]
                         })}
                     </script>
                 </Helmet>
 
-                {/* Contact Us Content */}
-                <Box className="contact-root">
-                    <Container>
-                        <Typography variant='h3' align='center' mb={10}>CONTACTANOS</Typography>
-                        <Grid container spacing={4}>
-                            <Grid item xs={12} md={6} className="contact-item">
-                                <Typography className="contact-title">Dirección</Typography>
-                                <Typography className="contact-content">
-                                    Colima de Tibas
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} md={6} className="contact-item">
-                                <Typography className="contact-title">Correo Electrónico</Typography>
-                                <Typography className="contact-content">
-                                    servicioautomotrizchaconcr@gmail.com
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} md={6} className="contact-item">
-                                <Typography className="contact-title">Teléfono</Typography>
-                                <Typography className="contact-content">506+63422141</Typography>
-                            </Grid>
-                            <Grid item xs={12} md={6} className="contact-item">
-                                <Typography className="contact-title">Síguenos en redes sociales</Typography>
-                                <Box className="social-links">
-                                    <Link href="https://www.facebook.com/profile.php?id=100086288028221" className="social-link" target="_blank" rel="noopener noreferrer">
-                                        <FaFacebook className="social-icon" /> Facebook
-                                    </Link>
-                                    <br />
-                                    <Link href="https://www.instagram.com/servicio_automotriz_chacon/" className="social-link" target="_blank" rel="noopener noreferrer">
-                                        <FaInstagram className="social-icon" /> Instagram
-                                    </Link>
-                                </Box>
-                            </Grid>
+                <Container>
+                    <Grid container spacing={4} justifyContent="center" textAlign="center">
+                        <Grid item xs={12} md={4}>
+                            <Typography variant="h6" gutterBottom>
+                                Mecánica Express Chacón
+                            </Typography>
+                            <Typography variant="body2">
+                                Colima de Tibás, San José, Costa Rica
+                            </Typography>
                         </Grid>
-                    </Container>
-                </Box>
-            </div>
+                        
+                        <Grid item xs={12} md={4}>
+                            <Typography variant="h6" gutterBottom>
+                                Contacto
+                            </Typography>
+                            <Typography variant="body2">
+                                <Link href="tel:+50663422141" color="inherit" underline="none">
+                                    Tel: +506 6342 2141
+                                </Link>
+                            </Typography>
+                            <Typography variant="body2">
+                                <Link href="mailto:servicioautomotrizchaconcr@gmail.com" color="inherit" underline="none">
+                                    Email: servicioautomotrizchaconcr@gmail.com
+                                </Link>
+                            </Typography>
+                        </Grid>
+    
+                        <Grid item xs={12} md={4}>
+                            <Typography variant="h6" gutterBottom>
+                                Síguenos
+                            </Typography>
+                            <Box display="flex" justifyContent="center" gap={2}>
+                                <Link 
+                                    href="https://www.facebook.com/profile.php?id=100086288028221" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    sx={{ color: '#ffffff' }}
+                                    aria-label="Visita nuestra página de Facebook"
+                                >
+                                    <FaFacebook size={24} />
+                                </Link>
+                                <Link 
+                                    href="https://www.instagram.com/servicio_automotriz_chacon/" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    sx={{ color: '#ffffff' }}
+                                    aria-label="Síguenos en Instagram"
+                                >
+                                    <FaInstagram size={24} />
+                                </Link>
+                            </Box>
+                        </Grid>
+                    </Grid>
+    
+                    <Box textAlign="center" mt={3}>
+                        <Typography variant="body2" color="gray">
+                            © {new Date().getFullYear()} Mecánica Express Chacón. Todos los derechos reservados.
+                        </Typography>
+                    </Box>
+                </Container>
+            </Box>
         );
     }
 );
 
-export default ContactUs;
+export default Footer;

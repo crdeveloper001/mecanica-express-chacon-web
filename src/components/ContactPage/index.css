@@ -1,85 +1,64 @@
-.contact-root {
-    background-image: url('../../assets/images/workshop/ContactUs.png');
-    background-size: cover;
-    position: static;
-    background-position: center;
-    min-height: 100vh;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contact-heading {
-    font-size: 2rem;
-    font-weight: bold;
+/* Estilos generales del footer */
+.footer-root {
+    background-color: #1a1a1a; /* Fondo oscuro elegante */
+    color: #ffffff;
+    padding: 40px 0;
     text-align: center;
-    margin-bottom: 32px;
-    /* Equivalent to theme.spacing(4) */
 }
 
-.contact-item {
-    text-align: center;
-    padding: 16px;
-    /* Equivalent to theme.spacing(2) */
-}
-
-.contact-title {
-    color: #e53935;
-    /* Red color for titles */
-    font-size: 1.2rem;
+/* Estilos para los títulos */
+.footer-title {
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 8px;
-    /* Equivalent to theme.spacing(1) */
 }
 
-.contact-content {
-    color: #fff;
+/* Estilos para los textos informativos */
+.footer-text {
+    font-size: 1rem;
+    color: #cfcfcf;
+    margin-bottom: 5px;
 }
 
-/* Estilo de los enlaces de redes sociales */
+/* Contenedor de enlaces de redes sociales */
 .social-links {
-    margin-top: 20px;
-    text-align: center;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
+/* Estilos para los iconos de redes sociales */
 .social-link {
-    font-size: 25px;
-    /* Aumenta el tamaño de los enlaces */
-    font-weight: bold;
-    color: #cfddeb;
-    /* Color azul claro */
+    font-size: 1.8rem;
+    color: #cfddeb; /* Azul claro */
     text-decoration: none;
-    margin: 8px;
     transition: color 0.3s, transform 0.3s;
-    /* Transición suave para el color y el tamaño */
-    display: inline-flex;
-    align-items: center;
 }
 
 .social-link:hover {
-    color: #005bb5;
-    /* Color azul más oscuro en hover */
+    color: #005bb5; /* Azul más oscuro al pasar el cursor */
     transform: scale(1.1);
-    /* Aumenta el tamaño al pasar el cursor */
 }
 
-/* Estilo para los iconos de las redes sociales */
-.social-icon {
-    font-size: 2rem;
-    /* Tamaño grande para los íconos */
-    margin-right: 10px;
-    /* Espacio entre el ícono y el texto */
+/* Estilos para el copyright */
+.footer-copyright {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: gray;
 }
 
 /* Responsive para pantallas pequeñas */
 @media (max-width: 600px) {
-    .contact-item {
-        text-align: center;
+    .footer-title {
+        font-size: 1.3rem;
+    }
+
+    .footer-text {
+        font-size: 0.9rem;
     }
 
     .social-link {
-        font-size: 1.3rem;
-        /* Reduce ligeramente el tamaño en pantallas pequeñas */
+        font-size: 1.5rem;
     }
 }

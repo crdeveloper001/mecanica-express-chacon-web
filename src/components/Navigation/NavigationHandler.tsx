@@ -20,6 +20,7 @@ const pages = [
     { name: 'Servicios Automotrices', title: 'Servicios Especializados - Mecánica Express Chacón', description: 'Explora nuestros servicios especializados para el cuidado de tu vehículo.' },
     { name: 'Clientes', title: 'Clientes - Mecánica Express Chacón', description: 'Conoce las historias de nuestros clientes satisfechos.' },
     { name: 'Contáctanos', title: 'Contáctanos - Mecánica Express Chacón', description: 'Estamos aquí para ayudarte. Contáctanos para más información.' },
+    { name: 'Trabajos', title: 'Trabajos - Mecánica Express Chacón', description: 'Conoce algunos de los trabajos de nuestros clientes satisfechos.' }
 ];
 
 const socialLinks = [
@@ -30,60 +31,53 @@ const socialLinks = [
 const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTMLElement>> }) => {
     const { currentTitle, drawerOpen, toggleDrawer, handleLinkClick } = useResponsiveNavBar();
 
-    // Verifica si currentTitle se actualiza
     useEffect(() => {
-        console.log("Current title:", currentTitle);  // Confirma si currentTitle cambia en cada click
+        console.log("Current title:", currentTitle);
     }, [currentTitle]);
 
-    const currentPage = pages.find(page => page.title === currentTitle);
+    const currentPage = pages.find(page => page.title === currentTitle) || {
+        title: 'Mecánica Express Chacón',
+        description: 'Mecánica Express Chacón - Servicios automotrices.',
+    };
 
     return (
         <>
+            {/* SEO Metadata */}
             <Helmet>
-                <title>{currentPage ? currentPage.title : 'Mecánica Express Chacón'}</title>
-                <meta name="description" content={currentPage ? currentPage.description : 'Mecánica Express Chacón - Servicios automotrices.'} />
+                <title>{currentPage.title}</title>
+                <meta name="description" content={currentPage.description} />
                 <meta name="keywords" content="Mecánica Express Chacón, servicios automotrices, mecánica rápida, asistencia en carretera" />
                 <meta name="robots" content="index,follow" />
+                
+                {/* Open Graph */}
+                <meta property="og:title" content={currentPage.title} />
+                <meta property="og:description" content={currentPage.description} />
+                <meta property="og:image" content="https://www.mecanicaexpresschacon.com/assets/images/icons/PageLogo.png" />
+                <meta property="og:type" content="website" />
+
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={currentPage.title} />
+                <meta name="twitter:description" content={currentPage.description} />
             </Helmet>
-            <AppBar position="sticky" color='default'>
+
+            <AppBar position="sticky" color="default">
                 <Toolbar disableGutters>
-                    <Avatar src={LogoPage} alt="Logo" sx={{ width: 'auto', height: 100, ml: 0 }} />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
-                        sx={{
-                            ml: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                            display: { xs: 'none', md: 'flex' },
-                        }}
-                    />
+                    {/* Logo */}
+                    <Avatar src={LogoPage} alt="Logo Mecánica Express" sx={{ width: 'auto', height: 100, ml: 0 }} />
 
                     <Box sx={{ flexGrow: 1 }} />
 
-                    <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+                    {/* Menú en pantallas grandes */}
+                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page.name}
                                 onClick={() => {
-                                    handleLinkClick(page.title);  // Cambia el título
-                                    const ref = refs[page.name];
-                                    if (ref && ref.current) {
-                                        ref.current.scrollIntoView({ behavior: 'smooth' });
-                                    }
+                                    handleLinkClick(page.title);
+                                    refs[page.name]?.current?.scrollIntoView({ behavior: 'smooth' });
                                 }}
-                                sx={{
-                                    my: 2,
-                                    mx: 1.5,
-                                    color: 'black',
-                                    display: 'block',
-                                    fontWeight: 500,
-                                }}
+                                sx={{ my: 2, mx: 1.5, color: 'black', fontWeight: 500 }}
                             >
                                 {page.name}
                             </Button>
@@ -96,16 +90,18 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 sx={{ color: 'black', mx: 0.5 }}
+                                aria-label={`Visitar nuestro ${social.name}`}
                             >
                                 {social.icon}
                             </IconButton>
                         ))}
                     </Box>
 
+                    {/* Menú en dispositivos móviles */}
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
-                            aria-label="open drawer"
+                            aria-label="Abrir menú de navegación"
                             onClick={toggleDrawer(true)}
                             color="inherit"
                         >
@@ -113,6 +109,7 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
                         </IconButton>
                     </Box>
 
+                    {/* Drawer para móviles */}
                     <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
                         <Box
                             sx={{ width: 250 }}
@@ -138,6 +135,7 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 sx={{ color: 'black', mx: 0.5 }}
+                                                aria-label={`Visitar nuestro ${social.name}`}
                                             >
                                                 {social.icon}
                                             </IconButton>
