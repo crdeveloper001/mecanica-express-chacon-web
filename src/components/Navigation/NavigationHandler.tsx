@@ -47,7 +47,7 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
                 <meta name="description" content={currentPage.description} />
                 <meta name="keywords" content="Mecánica Express Chacón, servicios automotrices, mecánica rápida, asistencia en carretera" />
                 <meta name="robots" content="index,follow" />
-                
+
                 {/* Open Graph */}
                 <meta property="og:title" content={currentPage.title} />
                 <meta property="og:description" content={currentPage.description} />
@@ -109,17 +109,28 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
                     </Box>
 
                     {/* Drawer para móviles */}
-                    <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+                    <Drawer anchor="right" open={drawerOpen} onClose={() => toggleDrawer(false)}>
                         <Box
                             sx={{ width: 250 }}
                             role="presentation"
                             onClick={toggleDrawer(false)}
-                            onKeyDown={toggleDrawer(false)}
+                            onKeyDown={(event) => {
+                                if (event.key === "Escape") {
+                                    toggleDrawer(false);
+                                }
+                            }}
                         >
                             <List>
                                 {pages.map((page) => (
-                                    <ListItem key={page.name} onClick={() => handleLinkClick(page.title)}>
-                                        <Button sx={{ textAlign: 'left', width: '100%' }} onClick={page.message}>
+                                    <ListItem key={page.name} onClick={() => {
+                                        handleLinkClick(page.title);
+                                        toggleDrawer(false); // Cierra el menú al hacer clic en un elemento
+                                    }}>
+                                        <Button sx={{ textAlign: 'left', width: '100%' }} onClick={() => {
+                                            handleLinkClick(page.title);  // Cambia la página activa
+                                            refs[page.name]?.current?.scrollIntoView({ behavior: 'smooth' });
+                                            toggleDrawer(false); // Cierra el Drawer después de la navegación
+                                        }}>
                                             {page.name}
                                         </Button>
                                     </ListItem>
