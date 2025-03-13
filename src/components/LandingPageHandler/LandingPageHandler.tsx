@@ -7,6 +7,7 @@ import ServicesPage from '../ServicesPage/ServicesPage';
 import ClientsPage from '../ClientsPage/ClientsPage';
 import ContactUs from '../ContactPage/ContactUs';
 import FlotingWhatsappButton from '../../utils/FlotingWhatsappButton/FlotingWhatsappButton';
+import JobsShowRoom from '../JobsShowRoom/JobsShowRoom';
 
 const LandingPageHandler = () => {
     const initialPageRef = useRef(null);
@@ -14,7 +15,11 @@ const LandingPageHandler = () => {
     const quickServicesRef = useRef(null);
     const especialServicesRef = useRef(null);
     const clientRef = useRef(null);
+    const jobsShowRoomRef = useRef(null);
     const contactUsRef = useRef(null);
+
+
+
     return (
         <>
             <NavigationHandler refs={{
@@ -23,6 +28,7 @@ const LandingPageHandler = () => {
                 'Servicios Rapidos': quickServicesRef,
                 'Servicios Automotrices': especialServicesRef,
                 'Clientes': clientRef,
+                'Trabajos': jobsShowRoomRef,
                 'Contáctanos': contactUsRef
             }} />
             <InitialPage ref={initialPageRef} />
@@ -33,6 +39,10 @@ const LandingPageHandler = () => {
             <br />
             <ServicesPage ref={especialServicesRef} />
             <br />
+            <hr />
+            <JobsShowRoom ref={jobsShowRoomRef} />
+            <br />
+            <hr />
             <ClientsPage ref={clientRef} />
             <ContactUs ref={contactUsRef} />
             <FlotingWhatsappButton />
