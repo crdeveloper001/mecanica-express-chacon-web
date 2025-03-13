@@ -1,5 +1,4 @@
 import React from 'react';
-import GoogleReviews from './GoogleReviews'
 import { Card, CardContent, Typography, Avatar, Grid, Container, Box } from '@mui/material';
 import { Helmet } from "react-helmet-async";
 import customerIcon from '../../assets/images/icons/customer.png';
