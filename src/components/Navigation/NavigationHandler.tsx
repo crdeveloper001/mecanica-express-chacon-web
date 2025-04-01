@@ -17,9 +17,10 @@ const pages = [
     { name: 'Acerca', title: 'Acerca - Mecánica Express Chacón', description: 'Conoce más sobre Mecánica Express Chacón y nuestro compromiso con la calidad.' },
     { name: 'Servicios Rapidos', title: 'Servicios - Mecánica Express Chacón', description: 'Descubre todos los servicios que ofrecemos para tu vehículo.' },
     { name: 'Servicios Automotrices', title: 'Servicios Especializados - Mecánica Express Chacón', description: 'Explora nuestros servicios especializados para el cuidado de tu vehículo.' },
+    { name: 'Trabajos', title: 'Trabajos - Mecánica Express Chacón', description: 'Conoce algunos de los trabajos de nuestros clientes satisfechos.', message: () => alert("Pagina en construccion") },
     { name: 'Clientes', title: 'Clientes - Mecánica Express Chacón', description: 'Conoce las historias de nuestros clientes satisfechos.' },
     { name: 'Contáctanos', title: 'Contáctanos - Mecánica Express Chacón', description: 'Estamos aquí para ayudarte. Contáctanos para más información.' },
-    { name: 'Trabajos', title: 'Trabajos - Mecánica Express Chacón', description: 'Conoce algunos de los trabajos de nuestros clientes satisfechos.', message: () => alert("Pagina en construccion") }
+   
 ];
 
 const socialLinks = [

@@ -62,7 +62,7 @@ const ClientReviewsGrid = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
                     </script>
                 </Helmet>
 
-                <Container sx={{ padding: '3rem 1rem', textAlign: 'center' }} data-aos="fade-down" data-aos-duration="1500">
+                <Container sx={{ padding: '3rem 1rem', textAlign: 'center' }} >
                     <Typography variant="h4" fontWeight="bold" gutterBottom>
                         Opiniones de nuestros clientes
                     </Typography>
