@@ -91,7 +91,7 @@ const InitialPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElem
                                             style={{ width: '25px', marginLeft: '8px' }} 
                                         />
                                     }
-                                    href="https://wa.me/message/CFX5E7A5ZSSTA1"
+                                    href="https://wa.me/50663422141"
                                     sx={{
                                         borderRadius: '25px',
                                         display: 'flex',
