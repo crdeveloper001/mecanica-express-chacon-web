@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import GetAppIcon from "@mui/icons-material/GetApp";
+import ShareIcon from "@mui/icons-material/Share";
 import {
     Container,
     Grid,
@@ -18,9 +22,13 @@ import {
     Divider,
     IconButton,
     Paper,
+    useTheme,
+    useMediaQuery,
+    Chip,
 } from "@mui/material";
 import { Helmet } from "react-helmet-async";
-import Slider from "react-slick"; // Importa react-slick
+import Slide from "@mui/material/Slide";
+import Slider from "react-slick";
 
 const trabajosMecanicos = [
     {
@@ -58,7 +66,6 @@ const trabajosMecanicos = [
             "/images/trabajos/Claudio/ANTES 1.jpg",
             "/images/trabajos/Claudio/ANTES 2.jpg",
             "/images/trabajos/Claudio/DESPUES.jpg",
-
         ],
         description: "Revision, limpieza y ajuste de frenos delantes y traseros con ligero desgaste al igual que cambio de aceite de motor"
     },
@@ -99,99 +106,106 @@ const trabajosMecanicos = [
             "/images/trabajos/Cliente-Mercedes-glz-2017/ANTES1.jpeg",
             "/images/trabajos/Cliente-Mercedes-glz-2017/ANTES2.jpeg",
             "/images/trabajos/Cliente-Mercedes-glz-2017/DESPUES1.jpeg",
-
         ],
         description: "Se realiza el cambio de pastillas de frenos viejos que presentaban desgaste, y se reemplazan con los nuevos y se sincronizan mediante escaner."
     }
 ];
 
+const Transition = React.forwardRef(function Transition(
+    props: any,
+    ref: React.Ref<unknown>
+) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
     (props, ref) => {
+        const theme = useTheme();
+        const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+
         const [selectedWork, setSelectedWork] = useState<{ id: number; title: string; category: string; images: string[]; description: string } | null>(null);
         const [categoryFilter, setCategoryFilter] = useState("");
+        const [currentIndex, setCurrentIndex] = useState(0);
+        const sliderRef = useRef<any>(null);
+
         const filteredWorks = categoryFilter ? trabajosMecanicos.filter(work => work.category === categoryFilter) : trabajosMecanicos;
-        // Configuración de react-slick para el carrusel
+
         const settings = {
-            dots: true,
+            dots: false,
             infinite: true,
-            speed: 500,
+            speed: 400,
             slidesToShow: 1,
             slidesToScroll: 1,
-            arrows: true,
-            responsive: [
-                {
-                    breakpoint: 768, // Para dispositivos móviles
-                    settings: {
-                        arrows: true, // Desactivar flechas en móviles si no se quieren mostrar
-                        dots: true,    // Mostrar puntos de navegación
-                    }
-                },
-            ]
+            arrows: false,
+            adaptiveHeight: true,
+            beforeChange: (_: number, next: number) => setCurrentIndex(next),
+        };
+
+        const openWork = (work: typeof trabajosMecanicos[0]) => {
+            setSelectedWork(work);
+            setCurrentIndex(0);
+            setTimeout(() => {
+                sliderRef.current?.slickGoTo(0);
+            }, 0);
+        };
+
+        const handlePrev = () => {
+            sliderRef.current?.slickPrev();
+        };
+        const handleNext = () => {
+            sliderRef.current?.slickNext();
+        };
+
+        const handleDownload = () => {
+            if (!selectedWork) return;
+            const url = selectedWork.images[currentIndex];
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = url.split("/").pop() || "image.jpg";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        };
+
+        const handleShare = async () => {
+            if (!selectedWork) return;
+            const url = selectedWork.images[currentIndex];
+            if ((navigator as any).share) {
+                try {
+                    await (navigator as any).share({
+                        title: selectedWork.title,
+                        text: selectedWork.description,
+                        url,
+                    });
+                } catch (e) {
+                    // user cancelled or errored
+                }
+            } else {
+                // Fallback: copy link
+                try {
+                    await navigator.clipboard.writeText(url);
+                    alert("Enlace copiado al portapapeles");
+                } catch {
+                    // ignore
+                }
+            }
         };
 
         return (
             <div ref={ref} {...props}>
                 <Helmet>
-                    {/* ✅ Mejor título con palabras clave */}
                     <title>Portafolio de Mecánica - Reparación de Autos | Mecánica Express Chacón</title>
-
-                    {/* ✅ Descripción más optimizada para buscadores */}
-                    <meta
-                        name="description"
-                        content="Explora nuestro portafolio de trabajos mecánicos en Mecánica Express Chacón. Reparación de frenos, motores, transmisión y más. ¡Servicio confiable y de calidad!"
-                    />
-
-                    {/* ✅ Keywords relevantes para búsquedas */}
-                    <meta
-                        name="keywords"
-                        content="reparación de autos, mecánica automotriz, frenos, motores, transmisión, alineación, taller mecánico, Mecánica Express Chacón"
-                    />
-
-                    {/* ✅ Indexación adecuada */}
+                    <meta name="description" content="Explora nuestro portafolio de trabajos mecánicos en Mecánica Express Chacón. Reparación de frenos, motores, transmisión y más. ¡Servicio confiable y de calidad!" />
+                    <meta name="keywords" content="reparación de autos, mecánica automotriz, frenos, motores, transmisión, alineación, taller mecánico, Mecánica Express Chacón" />
                     <meta name="robots" content="index, follow" />
-
-                    {/* ✅ Optimización para Open Graph (Facebook, LinkedIn) */}
                     <meta property="og:title" content="Portafolio de Trabajos - Mecánica Express Chacón" />
                     <meta property="og:description" content="Revisión, mantenimiento y reparación de vehículos en nuestro taller mecánico. Mira nuestros trabajos realizados." />
                     <meta property="og:image" content="/images/trabajos/Daniel/VEHICULO.jpeg" />
-                    <meta property="og:url" content="https://www.mecanicaexpresschacon.com" />
-                    <meta property="og:type" content="website" />
-
-                    {/* ✅ Optimización para Twitter */}
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content="Portafolio de Trabajos - Mecánica Express Chacón" />
-                    <meta name="twitter:description" content="Explora nuestros trabajos de mecánica automotriz. Servicio profesional y garantizado." />
-                    <meta name="twitter:image" content="/images/trabajos/Daniel/VEHICULO.jpeg" />
-
-                    {/* ✅ Datos estructurados para Google (Schema.org) */}
-                    <script type="application/ld+json">
-                        {`
-        {
-            "@context": "https://schema.org",
-            "@type": "AutoRepair",
-            "name": "Mecánica Express Chacón",
-            "image": "/images/trabajos/Daniel/VEHICULO.jpeg",
-            "url": "https://www.mecanicaexpresschacon.com",
-            "description": "Servicio de mecánica automotriz en reparación de frenos, motores, transmisión y más. Calidad garantizada.",
-            "address": {
-                "@type": "11305",
-                "streetAddress": "Cuatro Reinas de Tibas, San Jose",
-                "addressLocality": "San Jose",
-                "addressCountry": "Costa Rica"
-            },
-            "telephone": "+506 63422141",
-            "openingHours": "Mo-Fr 08:00-18:00"
-        }
-        `}
-                    </script>
                 </Helmet>
 
-
                 <Container data-aos="fade-up" data-aos-duration="1500">
-
                     <Typography variant="h4" gutterBottom>Portafolio de Trabajos de nuestros clientes</Typography>
 
-                    {/* Filtro por categoría */}
                     <Select
                         value={categoryFilter}
                         onChange={(e) => setCategoryFilter(e.target.value)}
@@ -206,9 +220,7 @@ const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                         <MenuItem value="Liquidos">Liquidos</MenuItem>
                     </Select>
 
-                    {/* Galería de Trabajos */}
                     <Grid container spacing={3}>
-
                         {filteredWorks.length === 0 ? (
                             <Grid item xs={12}>
                                 <Card style={{ padding: 20, textAlign: "center" }}>
@@ -223,7 +235,7 @@ const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                         ) : (
                             filteredWorks.map((work) => (
                                 <Grid item xs={12} sm={6} md={4} key={work.id}>
-                                    <Card onClick={() => setSelectedWork(work)} style={{ cursor: "pointer" }}>
+                                    <Card onClick={() => openWork(work)} style={{ cursor: "pointer" }}>
                                         <CardMedia component="img" height="200" image={work.images[0]} alt={work.title} />
                                         <CardContent>
                                             <Typography variant="h6">{work.title}</Typography>
@@ -236,73 +248,139 @@ const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                         )}
                     </Grid>
 
-                    {/* Modal con detalles del trabajo */}
                     {selectedWork && (
-
                         <Dialog
                             open={!!selectedWork}
                             onClose={() => setSelectedWork(null)}
-                            maxWidth="md" // Ajuste de tamaño del modal
-                            fullWidth // Hace que el diálogo use todo el ancho permitido
+                            maxWidth="lg"
+                            fullWidth
+                            fullScreen={fullScreen}
+                            TransitionComponent={Transition}
+                            aria-labelledby="work-dialog-title"
+                            onKeyDown={(e) => {
+                                if (e.key === "ArrowLeft") handlePrev();
+                                if (e.key === "ArrowRight") handleNext();
+                            }}
                         >
-                            <DialogTitle>
-                                {selectedWork.title}
-                                <IconButton
-                                    aria-label="close"
-                                    onClick={() => setSelectedWork(null)}
-                                    sx={{
-                                        position: "absolute",
-                                        right: 8,
-                                        top: 8,
-                                        color: (theme) => theme.palette.grey[500],
-                                    }}
-                                >
-                                    <CloseIcon />
-                                </IconButton>
+                            <DialogTitle id="work-dialog-title" sx={{ pr: 6 }}>
+                                <Box display="flex" alignItems="center" justifyContent="space-between">
+                                    <Box>
+                                        <Typography variant="h6">{selectedWork.title}</Typography>
+                                        <Chip label={selectedWork.category} size="small" sx={{ mt: .5 }} />
+                                    </Box>
+                                    <IconButton
+                                        aria-label="close"
+                                        onClick={() => setSelectedWork(null)}
+                                        sx={{ position: "absolute", right: 8, top: 8 }}
+                                    >
+                                        <CloseIcon />
+                                    </IconButton>
+                                </Box>
                             </DialogTitle>
 
                             <DialogContent>
-                                {/* Carrusel con imágenes */}
-                                <Box display="flex" justifyContent="center" mb={2}>
-                                    <Paper elevation={3} sx={{ overflow: "hidden", borderRadius: 2, width: "100%", maxWidth: 550, mx: "auto" }}>
-                                        <Slider {...settings}>
-                                            {selectedWork.images.map((image, index) => (
-                                                <div key={index} style={{ display: "flex", justifyContent: "center" }}>
-                                                    <img
-                                                        src={image}
-                                                        alt={`${selectedWork.title} - Imagen ${index + 1}`}
-                                                        style={{
-                                                            width: "100%",       // Ocupar todo el ancho del contenedor
-                                                            maxWidth: "500px",   // No sobrepasar un tamaño máximo
-                                                            height: "300px",     // Tamaño uniforme para todas las imágenes
-                                                            objectFit: "cover",  // Evitar distorsiones
-                                                            borderRadius: "8px",
-                                                        }}
-                                                    />
-                                                </div>
-                                            ))}
-                                        </Slider>
-                                    </Paper>
+                                <Grid container spacing={2}>
+                                    <Grid item xs={12} md={7}>
+                                        <Paper elevation={3} sx={{ overflow: "hidden", borderRadius: 2 }}>
+                                            <Box position="relative">
+                                                <Box sx={{ position: "absolute", left: 8, top: "50%", transform: "translateY(-50%)", zIndex: 10 }}>
+                                                    <IconButton onClick={handlePrev} aria-label="previous image" size="small">
+                                                        <ArrowBackIosNewIcon />
+                                                    </IconButton>
+                                                </Box>
 
+                                                <Box sx={{ position: "absolute", right: 8, top: "50%", transform: "translateY(-50%)", zIndex: 10 }}>
+                                                    <IconButton onClick={handleNext} aria-label="next image" size="small">
+                                                        <ArrowForwardIosIcon />
+                                                    </IconButton>
+                                                </Box>
 
-                                </Box>
+                                                <Box p={2}>
+                                                    <Slider ref={sliderRef} {...settings}>
+                                                        {selectedWork.images.map((image, index) => (
+                                                            <div key={index} style={{ display: "flex", justifyContent: "center" }}>
+                                                                <img
+                                                                    src={image}
+                                                                    alt={`${selectedWork.title} - Imagen ${index + 1}`}
+                                                                    style={{
+                                                                        width: "100%",
+                                                                        maxHeight: fullScreen ? "60vh" : 420,
+                                                                        objectFit: "cover",
+                                                                        borderRadius: 6,
+                                                                    }}
+                                                                    loading="lazy"
+                                                                />
+                                                            </div>
+                                                        ))}
+                                                    </Slider>
 
-                                <Divider sx={{ my: 2 }} />
+                                                    <Box display="flex" justifyContent="center" alignItems="center" mt={1} gap={1} flexWrap="wrap" sx={{ px: 1 }}>
+                                                        {selectedWork.images.map((thumb, i) => (
+                                                            <Box
+                                                                key={i}
+                                                                component="button"
+                                                                onClick={() => {
+                                                                    sliderRef.current?.slickGoTo(i);
+                                                                    setCurrentIndex(i);
+                                                                }}
+                                                                aria-label={`Ver miniatura ${i + 1}`}
+                                                                style={{
+                                                                    border: currentIndex === i ? `2px solid ${theme.palette.primary.main}` : "1px solid #ddd",
+                                                                    padding: 0,
+                                                                    background: "transparent",
+                                                                    cursor: "pointer",
+                                                                    borderRadius: 4,
+                                                                }}
+                                                            >
+                                                                <img
+                                                                    src={thumb}
+                                                                    alt={`Miniatura ${i + 1}`}
+                                                                    style={{ width: 72, height: 48, objectFit: "cover", display: "block", borderRadius: 4 }}
+                                                                    loading="lazy"
+                                                                />
+                                                            </Box>
+                                                        ))}
+                                                    </Box>
+                                                </Box>
+                                            </Box>
+                                        </Paper>
+                                    </Grid>
 
-                                {/* Descripción */}
-                                <Typography variant="body1" textAlign="justify">
-                                    {selectedWork.description}
-                                </Typography>
+                                    <Grid item xs={12} md={5}>
+                                        <Typography variant="subtitle2" color="textSecondary">Descripción</Typography>
+                                        <Typography variant="body1" paragraph sx={{ textAlign: "justify" }}>
+                                            {selectedWork.description}
+                                        </Typography>
+
+                                        <Divider sx={{ my: 1 }} />
+
+                                        <Box display="flex" alignItems="center" justifyContent="space-between" mb={2} mt={1}>
+                                            <Typography variant="caption" color="textSecondary">
+                                                Imagen {currentIndex + 1} de {selectedWork.images.length}
+                                            </Typography>
+
+                                            <Box>
+                                                <IconButton aria-label="descargar imagen" onClick={handleDownload}>
+                                                    <GetAppIcon />
+                                                </IconButton>
+                                                <IconButton aria-label="compartir imagen" onClick={handleShare}>
+                                                    <ShareIcon />
+                                                </IconButton>
+                                            </Box>
+                                        </Box>
+
+                                        <Button variant="contained" color="primary" fullWidth onClick={() => setSelectedWork(null)}>
+                                            Cerrar
+                                        </Button>
+                                    </Grid>
+                                </Grid>
                             </DialogContent>
 
                             <DialogActions>
-                                <Button onClick={() => setSelectedWork(null)} color="primary" variant="contained">
-                                    Cerrar
-                                </Button>
+                                <Button onClick={() => setSelectedWork(null)} color="inherit">Cerrar</Button>
                             </DialogActions>
                         </Dialog>
                     )}
-
                 </Container>
             </div>
         );
