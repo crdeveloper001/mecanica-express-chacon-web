@@ -1,7 +1,17 @@
 .GeneralBox {
-
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-height: calc(100vh - 64px);
+    overflow: hidden;
     background-image: url("../../assets/images/InitialPageBackground.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+}
 
+@media (min-width: 600px) {
+    .GeneralBox {
+        min-height: calc(100vh - 80px);
+    }
 }

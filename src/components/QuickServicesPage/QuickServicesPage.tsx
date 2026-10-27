@@ -1,33 +1,20 @@
-import { Grid, Card, CardContent, Typography, Box, styled } from "@mui/material";
+import { Card, CardContent, Typography, Box, styled } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import { Helmet } from "react-helmet-async";
 import { Build, LocalGasStation, CarRepair, Speed, VerifiedUser, Assessment } from '@mui/icons-material'; // Icons de Material UI
 import './index.css';
 import React from "react";
 
-// Estilo de la tarjeta mejorado
-const cardStyle = {
-    height: 'auto',  // Altura automática para mejor ajuste con contenido
-    width: '100%',   // Asegura que ocupe todo el espacio disponible
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)', // Sombra más prominente
-    borderRadius: '12px', // Bordes más redondeados
-    border: '1px solid #e0e0e0',
-    transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Transición suave para hover
-    overflow: 'hidden', // Evitar que los elementos sobresalgan
-};
-
 const CardIconBox = styled(Box)(({ theme }) => ({
-    fontSize: '50px',  // Tamaño de icono más grande
-    marginTop: '20px',
-    color: theme.palette.primary.main, // Usamos color primario de tema para el icono
-    transition: 'color 0.3s ease',
-    '&:hover': {
-        color: theme.palette.secondary.main, // Cambio de color al hacer hover
-    },
+    width: 58,
+    height: 58,
+    display: 'grid',
+    placeItems: 'center',
+    flexShrink: 0,
+    borderRadius: 16,
+    fontSize: 30,
+    color: theme.palette.primary.main,
+    backgroundColor: theme.palette.action.hover,
 }));
 
 const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
@@ -106,13 +93,42 @@ const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
                     </script>
                 </Helmet>
 
-                <div className="DividerSection"></div>
+                <Box
+                    component="main"
+                    sx={{
+                        px: { xs: 2, sm: 3 },
+                        py: { xs: 7, md: 11 },
+                        background: 'linear-gradient(180deg, #f7f9fc 0%, #ffffff 48%, #f7f9fc 100%)',
+                    }}
+                >
+                    <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
+                        <Box sx={{ maxWidth: 760, mx: 'auto', mb: { xs: 5, md: 7 }, textAlign: 'center' }}>
+                            <Typography
+                                component="p"
+                                sx={{ color: 'error.main', fontWeight: 700, letterSpacing: 2, fontSize: 13, mb: 1.5 }}
+                            >
+                                MECÁNICA EXPRESS CHACÓN
+                            </Typography>
+                            <Typography
+                                component="h1"
+                                sx={{
+                                    color: 'text.primary',
+                                    fontWeight: 800,
+                                    fontSize: { xs: '2.1rem', sm: '2.8rem', md: '3.25rem' },
+                                    lineHeight: 1.12,
+                                    letterSpacing: '-0.04em',
+                                    mb: 2,
+                                }}
+                            >
+                                Soluciones confiables para seguir en camino
+                            </Typography>
+                            <Typography sx={{ color: 'text.secondary', fontSize: { xs: 16, md: 18 }, lineHeight: 1.75 }}>
+                                Desde una atención rápida hasta una evaluación completa, cuidamos tu vehículo con
+                                experiencia, claridad y un servicio pensado para tu tranquilidad.
+                            </Typography>
+                        </Box>
 
-                <Box sx={{ padding: 2 }}>
-                    <Typography variant="h4" color="error" align="center" fontStyle={'italic'} fontWeight={'bold'} mt={5}>
-                        SERVICIOS RÁPIDOS
-                    </Typography>
-                    <Grid container spacing={3} justifyContent="center">
+                        <Grid container spacing={2.5} justifyContent="center">
                         {[
                             {
                                 title: "Asistencia en carretera",
@@ -151,29 +167,47 @@ const QuickServicesPage = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLD
                                 icon: <Assessment fontSize="inherit" />,
                             },
                         ].map((service, index) => (
-                            <Grid item xs={10} sm={6} md={4} key={index}>
+                            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
                                 <Card
-                                    sx={cardStyle}
+                                    elevation={0}
+                                    sx={{
+                                        height: '100%',
+                                        minHeight: 250,
+                                        border: '1px solid',
+                                        borderColor: 'divider',
+                                        borderRadius: 3,
+                                        backgroundColor: 'background.paper',
+                                        transition: 'transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease',
+                                        '&:hover': {
+                                            transform: 'translateY(-5px)',
+                                            borderColor: 'primary.light',
+                                            boxShadow: '0 16px 38px rgba(20, 35, 60, 0.10)',
+                                        },
+                                    }}
                                     data-aos="fade-up"
                                     data-aos-duration="1500"
-                                    onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
-                                    onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
                                 >
-                                    <CardIconBox>
-                                        {service.icon} {/* Icono dinámico */}
-                                    </CardIconBox>
-                                    <CardContent>
-                                        <Typography gutterBottom variant="h5" component="h2" color="primary">
+                                    <CardContent sx={{ p: { xs: 2.5, md: 3 }, '&:last-child': { pb: { xs: 2.5, md: 3 } } }}>
+                                        <CardIconBox sx={{ mb: 2.5 }}>
+                                            {service.icon}
+                                        </CardIconBox>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h5"
+                                            component="h2"
+                                            sx={{ color: 'text.primary', fontWeight: 700, fontSize: 20, lineHeight: 1.35 }}
+                                        >
                                             {service.title}
                                         </Typography>
-                                        <Typography variant="body1" color="textSecondary" fontSize={15}>
+                                        <Typography sx={{ color: 'text.secondary', fontSize: 15, lineHeight: 1.75 }}>
                                             {service.description}
                                         </Typography>
                                     </CardContent>
                                 </Card>
                             </Grid>
                         ))}
-                    </Grid>
+                        </Grid>
+                    </Box>
                 </Box>
             </div>
         );

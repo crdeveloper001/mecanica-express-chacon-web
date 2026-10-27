@@ -1,0 +1,226 @@
+{
+    "reviews": [
+        {
+            "reviewer": {
+                "displayName": "Martín"
+            },
+            "starRating": "FIVE",
+            "comment": "Excelente servicio. A pesar de haber terminado su jornada laboral, llegó hasta la ubicación para ayudarnos con el problema de la batería. Fue muy atento, respetuoso y comprometido. Antes de recomendar la compra de una batería nueva, realizó varias pruebas y evaluó distintas posibles causas, demostrando honestidad y un gran conocimiento en su área. Finalmente, encontró la falla y la solucionó de manera rápida y eficaz. ¡Totalmente recomendado!\n\n(Translated by Google)\nExcellent service. Even after finishing his workday, he came to our location to help us with the battery problem. He was very attentive, respectful, and dedicated. Before recommending a new battery, he ran several tests and evaluated different possible causes, demonstrating honesty and extensive knowledge in his field. He ultimately found the problem and fixed it quickly and efficiently. Highly recommended!",
+            "createTime": "2026-09-05T00:01:24.746491Z",
+            "updateTime": "2026-09-05T00:01:24.746491Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT2tSMVZsWTNNM2hDTXkxdlFXdDNaRXR6TjB4TGNIYxAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Jhoel Zúñiga"
+            },
+            "starRating": "ONE",
+            "comment": "Hicieron un escaneo a medias y despues se desaparecieron ignorando llamadas y mensajes. Parece que no sabian que hacer y prefirieron dejarlo guindando despues de cobrar la inspección.\n\n(Translated by Google)\nThey did a half-hearted scan and then disappeared, ignoring calls and messages. It seems they didn\u0027t know what to do and preferred to leave it hanging after getting paid for the inspection.",
+            "createTime": "2026-08-11T23:32:11.203662Z",
+            "updateTime": "2026-08-11T23:32:11.203662Z",
+            "reviewReply": {
+                "comment": "Buenas noches Jhoel, lamentamos que nuestro servicio no haya sido el esperado, esperamos que nos contacte al privado para retroalimentacion y que el tecnico pueda brindarle una atencion ma amplificada, las disculpas del caso",
+                "updateTime": "2026-08-14T00:56:31.311427Z"
+            },
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT25wdmFtMUdSbFp2ZDI5UmFtdFRaRVExWVZkNGNVRRAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Karen Olivares"
+            },
+            "starRating": "FIVE",
+            "comment": "Excelente atención\n\n(Translated by Google)\nExcellent service",
+            "createTime": "2026-06-17T19:14:19.697376Z",
+            "updateTime": "2026-06-17T19:14:19.697376Z",
+            "reviewReply": {
+                "comment": "Muchisimas gracias por la confianza, estamos para servirle",
+                "updateTime": "2026-07-15T04:08:04.894048Z"
+            },
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT21aa1FqWk1RVGN3Ym10aE0yc3dTMkprV1V3d1JYYxAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Jafet Vanegas"
+            },
+            "starRating": "FIVE",
+            "createTime": "2026-06-17T18:27:15.931103Z",
+            "updateTime": "2026-06-17T18:27:15.931103Z",
+            "reviewReply": {
+                "comment": "Muchisimas gracias por la confianza, estamos para servirle",
+                "updateTime": "2026-07-15T04:08:07.849353Z"
+            },
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT2pKRFJYZEtXbE13T1d0Q1NVeDZXVTg0WkZOc2FFRRAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Maureen Leal"
+            },
+            "starRating": "FIVE",
+            "comment": "La primera vez que solicité el servicio fue para hacer asegurarme de hacer una buena compra de un vehículo. Quedé muy satisfecha con el servicio recibido porque Jeffrey me entregó información completa (servicio de escáner) que me dio seguridad en la compra. A partir de ahí le he contactado en situaciones de emergencia y el servicio ha sido muy eficiente, rápido. Además del trato amable y la paciencia para explicarme los procedimientos que se le harán al carro.\n\n(Translated by Google)\nThe first time I used their service was to make sure I was buying a car. I was very satisfied with the service because Jeffrey provided me with complete information (scanning service) that gave me confidence in my purchase. Since then, I\u0027ve contacted them in emergency situations, and the service has been very efficient and fast. They were also very friendly and patient in explaining the procedures they would perform on the car.",
+            "createTime": "2026-06-17T16:50:37.997543Z",
+            "updateTime": "2026-06-17T16:50:37.997543Z",
+            "reviewReply": {
+                "comment": "Muchisimas gracias por la confianza, estamos para servirle",
+                "updateTime": "2026-07-15T04:08:13.088603Z"
+            },
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT25WRmFsVjBlVlV4YnpCTE1teGFSM0Y2VERoQ2NFRRAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Jonathan Garcia"
+            },
+            "starRating": "FIVE",
+            "comment": "La valoración fue impecable, me facilitó recomendaciones y pude efectuar la compra segura\n\n(Translated by Google)\nThe service was impeccable, they provided me with recommendations, and I was able to make a secure purchase.",
+            "createTime": "2025-11-29T21:11:22.148774Z",
+            "updateTime": "2025-11-29T21:11:22.148774Z",
+            "reviewReply": {
+                "comment": "Muchisimas gracias por la confianza, estamos para servirle",
+                "updateTime": "2026-07-15T04:08:22.277443Z"
+            },
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT2sxUVFVVkxZUzAyVUZrNGRHWjZPVkZGTkZvNFZFRRAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Kenneth Aguilar"
+            },
+            "starRating": "FIVE",
+            "comment": "Calidad de servicio y atención. Muy confiables y sobre todo la seguridad que me dieron sobre el estado del vehículo que voy a comprar me parece excelente y me da tranquilidad que el carro que voy a comprar está en perfectas condiciones.\nSuper recomendados....\n\n(Translated by Google)\nExcellent service and attention. Very reliable, and above all, the assurance they gave me about the condition of the vehicle I\u0027m going to buy is outstanding and gives me peace of mind knowing the car I\u0027m purchasing is in perfect condition. Highly recommended!",
+            "createTime": "2025-11-18T16:35:50.710993Z",
+            "updateTime": "2025-11-18T16:35:50.710993Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT21aTGVHMUhhMlJaUm01NU4zWm9kMUJ4WldWNVVuYxAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Chantal Ceciliano"
+            },
+            "starRating": "FIVE",
+            "comment": "Excelente servicio, conocimiento, seriedad… Jef es demasiado bueno en lo que hace y es demasiado amigable y se toma el tiempo de explicar. 10/10\n\n(Translated by Google)\nExcellent service, knowledge, and professionalism… Jef is incredibly good at what he does, and he\u0027s so friendly and takes the time to explain everything. 10/10",
+            "createTime": "2025-03-20T02:26:38.503029Z",
+            "updateTime": "2025-10-14T13:01:07.770798Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/ChdDSUhNMG9nS0VJQ0FnTUN3eGNLWHp3RRAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Diego Segura"
+            },
+            "starRating": "FIVE",
+            "comment": "Muy buen servicio por parte de Jefrey, la revisión realizada me hizo asegurarme de que el vehiculo estuviera tal como me lo indicaban, genera mucha confianza y realmente lo agradezco mucho, pura vida\n\n(Translated by Google)\nJefrey provided excellent service. The inspection he performed confirmed that the vehicle was exactly as described. He inspires a lot of confidence, and I truly appreciate it. Pura vida!",
+            "createTime": "2025-09-10T16:57:30.895841Z",
+            "updateTime": "2025-09-10T16:57:30.895841Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT2t0a1pUVTNjMVZNTFRreldHbERaak5rVTNOWGIyYxAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "jean carlos E"
+            },
+            "starRating": "FIVE",
+            "comment": "Excelente servicio, nos ayudo a revisar de manera muy completa un auto usado\n\n(Translated by Google)\nExcellent service, they helped us thoroughly inspect a used car",
+            "createTime": "2025-09-08T16:17:06.002763Z",
+            "updateTime": "2025-09-08T16:17:06.002763Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT2pnMVMxRkJUekV5TVRGWmIxRlhjalU0WkhGVmRGRRAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Antony Bermúdez"
+            },
+            "starRating": "FIVE",
+            "comment": "Excelente servicio, muy puntual, profesional y demuestra alto conocimiento en automotriz.\n\n(Translated by Google)\nExcellent service, very punctual, professional, and demonstrates high automotive knowledge.",
+            "createTime": "2025-08-21T17:00:28.729686Z",
+            "updateTime": "2025-08-21T17:00:28.729686Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT25aeFRVSXdObE51WVdOSWNVNUNVRVIwV2taUlduYxAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Marco Rodriguez"
+            },
+            "starRating": "FIVE",
+            "comment": "Excelente servicio. Puntualidad y responsabilidad.\n\n(Translated by Google)\nExcellent service. Punctuality and responsibility.",
+            "createTime": "2025-08-20T23:39:01.908389Z",
+            "updateTime": "2025-08-20T23:39:01.908389Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT2tWaGRVeFRabFoxVDJNdGFrdElWbXQyU0RGVllXYxAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Merckx"
+            },
+            "starRating": "FIVE",
+            "comment": "Mi nombre es Don Randall, recomiendo totalmente los servicios de Mecánica Exprés, muy profesional, responsable, puntual y comprometido con lo que hace,!!!!!\n\n(Translated by Google)\nMy name is Don Randall, and I highly recommend Mecánica Exprés\u0027 services. They are very professional, responsible, punctual, and committed to their work!",
+            "createTime": "2025-08-20T02:38:11.999786Z",
+            "updateTime": "2025-08-20T02:38:11.999786Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT2tGU1IycG1UME5MUm5ORlMya3djRmhNZDNOTldYYxAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Luis Monge Mora"
+            },
+            "starRating": "ONE",
+            "comment": "Terrible experiencia. Me recomendó comprar un carro que al final requirió medio millón solo para repararle todo lo que estaba mal cuando se me indicó que el carro estaba en estado óptimo.\n\n(Translated by Google)\nTerrible experience. He recommended I buy a car that ended up costing half a million just to repair everything that was wrong with it, even though I was told the car was in perfect condition.",
+            "createTime": "2025-06-16T18:25:02.910106Z",
+            "updateTime": "2025-06-16T18:25:02.910106Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/Ci9DQUlRQUNvZENodHljRjlvT2xscGFUQmlValE0YjBzdGVFTkdTakZoV2s5eVFYYxAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Javier Sanchez"
+            },
+            "starRating": "FIVE",
+            "comment": "Rápido y eficaz. El diagnóstico fue correcto y la falla se arregló. Muy satisfecho. Recomiendo 100% el servicio.\n\n(Translated by Google)\nQuick and efficient. The diagnosis was correct and the problem was fixed. Very satisfied. I highly recommend this service.",
+            "createTime": "2025-04-08T01:07:54.311262Z",
+            "updateTime": "2025-04-08T01:07:54.311262Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/ChZDSUhNMG9nS0VJQ0FnTURJN09iWFpBEAE"
+        },
+        {
+            "reviewer": {
+                "displayName": "Esteban Toruño Barrantes"
+            },
+            "starRating": "FIVE",
+            "comment": "Responsables, no tienen prisa ni tiempo estimado, revisan el carro por completo, 100% recomendado, y lo más importante, piden un recorrido del carro.\n\n(Translated by Google)\nThey are responsible, they are not in a hurry and do not give an estimated time, they check the car completely, 100% recommended, and most importantly, they ask for a walkthrough of the car.",
+            "createTime": "2025-03-28T00:36:00.492435Z",
+            "updateTime": "2025-03-28T00:37:06.810993Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/ChdDSUhNMG9nS0VJQ0FnTUR3bzhYbWtRRRAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Gerson Gamboa C"
+            },
+            "starRating": "FIVE",
+            "comment": "Excelente profesional, muy atento a todas las consultas que se le hicieron y la revisión del carro pensado a comprar\n\n(Translated by Google)\nExcellent professional, very attentive to all the questions asked and the review of the car we were considering buying.",
+            "createTime": "2025-03-22T14:04:52.193064Z",
+            "updateTime": "2025-03-22T14:04:52.193064Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/ChZDSUhNMG9nS0VJQ0FnTUR3d0lxYVhREAE"
+        },
+        {
+            "reviewer": {
+                "displayName": "Jesús Altamirano"
+            },
+            "starRating": "FIVE",
+            "comment": "Excelente servicio, confianza y seguridad lo recomiendo a ojos cerrados siempre con disposición. Muy profesional!!!\n\n(Translated by Google)\nExcellent service, trustworthy and secure. I recommend it without hesitation; always helpful. Very professional!",
+            "createTime": "2025-03-20T01:15:14.676274Z",
+            "updateTime": "2025-03-20T01:15:14.676274Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/ChdDSUhNMG9nS0VJQ0FnTUN3aGZxVm5RRRAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Eduardo Salas Quiros"
+            },
+            "starRating": "FOUR",
+            "createTime": "2024-11-28T19:32:25.169943Z",
+            "updateTime": "2024-11-28T19:32:25.169943Z",
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/ChdDSUhNMG9nS0VJQ0FnSURQNlBfdmlBRRAB"
+        },
+        {
+            "reviewer": {
+                "displayName": "Diego Muñoz Campos"
+            },
+            "starRating": "FIVE",
+            "comment": "Excelente servicio, muy rápido y eficiente! Súper recomendados\n\n(Translated by Google)\nExcellent service, very fast and efficient! Highly recommended!",
+            "createTime": "2024-11-26T22:36:50.720490Z",
+            "updateTime": "2024-11-26T22:36:50.720490Z",
+            "reviewReply": {
+                "comment": "Muchas gracias!! estamos para servirle!",
+                "updateTime": "2024-11-26T23:16:54.955093Z"
+            },
+            "name": "accounts/116561128015484258091/locations/7323088504046691878/reviews/ChZDSUhNMG9nS0VJQ0FnSUNQemJIX2FREAE"
+        }
+    ]
+}

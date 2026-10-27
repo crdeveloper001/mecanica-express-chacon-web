@@ -6,7 +6,6 @@ import GetAppIcon from "@mui/icons-material/GetApp";
 import ShareIcon from "@mui/icons-material/Share";
 import {
     Container,
-    Grid,
     Card,
     CardMedia,
     CardContent,
@@ -26,6 +25,7 @@ import {
     useMediaQuery,
     Chip,
 } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import { Helmet } from "react-helmet-async";
 import Slide from "@mui/material/Slide";
 import Slider from "react-slick";
@@ -203,26 +203,42 @@ const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                     <meta property="og:image" content="/images/trabajos/Daniel/VEHICULO.jpeg" />
                 </Helmet>
 
-                <Container data-aos="fade-up" data-aos-duration="1500">
-                    <Typography variant="h4" gutterBottom>Portafolio de Trabajos de nuestros clientes</Typography>
+                <Container data-aos="fade-up" data-aos-duration="1500" sx={{ py: { xs: 4, md: 8 } }}>
+                    <Box sx={{ mb: { xs: 3, md: 5 }, textAlign: { xs: "center", md: "left" } }}>
+                       
+                        <Typography
+                            variant="h3"
+                            component="h1"
+                            sx={{ fontWeight: 800, fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" }, mb: 1 }}
+                        >
+                            Trabajos realizados
+                        </Typography>
+                        <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 680, mx: { xs: "auto", md: 0 } }}>
+                            Conoce algunos de nuestros servicios y el cuidado que ponemos en cada vehículo.
+                        </Typography>
+                    </Box>
 
-                    <Select
-                        value={categoryFilter}
-                        onChange={(e) => setCategoryFilter(e.target.value)}
-                        displayEmpty
-                        style={{ marginBottom: 20 }}
-                    >
-                        <MenuItem value="">Todas las Categorías</MenuItem>
-                        <MenuItem value="Motores">Motores</MenuItem>
-                        <MenuItem value="Frenos">Frenos</MenuItem>
-                        <MenuItem value="Suspensión">Suspensión</MenuItem>
-                        <MenuItem value="Transmisiones">Transmisiones</MenuItem>
-                        <MenuItem value="Liquidos">Liquidos</MenuItem>
-                    </Select>
+                    <Box sx={{ display: "flex", justifyContent: { xs: "stretch", sm: "flex-end" }, mb: 3 }}>
+                        <Select
+                            value={categoryFilter}
+                            onChange={(e) => setCategoryFilter(e.target.value)}
+                            displayEmpty
+                            size="small"
+                            inputProps={{ "aria-label": "Filtrar trabajos por categoría" }}
+                            sx={{ width: { xs: "100%", sm: 260 }, bgcolor: "background.paper", borderRadius: 2 }}
+                        >
+                            <MenuItem value="">Todas las categorías</MenuItem>
+                            <MenuItem value="Motores">Motores</MenuItem>
+                            <MenuItem value="Frenos">Frenos</MenuItem>
+                            <MenuItem value="Suspensión">Suspensión</MenuItem>
+                            <MenuItem value="Transmisiones">Transmisiones</MenuItem>
+                            <MenuItem value="Liquidos">Liquidos</MenuItem>
+                        </Select>
+                    </Box>
 
                     <Grid container spacing={3}>
                         {filteredWorks.length === 0 ? (
-                            <Grid item xs={12}>
+                            <Grid size={{ xs: 12 }}>
                                 <Card style={{ padding: 20, textAlign: "center" }}>
                                     <CardContent>
                                         <Typography variant="h6">No hay trabajos en esta categoría</Typography>
@@ -234,13 +250,33 @@ const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                             </Grid>
                         ) : (
                             filteredWorks.map((work) => (
-                                <Grid item xs={12} sm={6} md={4} key={work.id}>
-                                    <Card onClick={() => openWork(work)} style={{ cursor: "pointer" }}>
-                                        <CardMedia component="img" height="200" image={work.images[0]} alt={work.title} />
-                                        <CardContent>
-                                            <Typography variant="h6">{work.title}</Typography>
-                                            <Typography variant="subtitle2" color="textSecondary">{work.category}</Typography>
-                                            <Typography variant="body2">{work.description}</Typography>
+                                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={work.id}>
+                                    <Card
+                                        onClick={() => openWork(work)}
+                                        onKeyDown={(event) => {
+                                            if (event.key === "Enter" || event.key === " ") openWork(work);
+                                        }}
+                                        role="button"
+                                        tabIndex={0}
+                                        sx={{
+                                            height: "100%",
+                                            cursor: "pointer",
+                                            overflow: "hidden",
+                                            borderRadius: 3,
+                                            transition: "transform 180ms ease, box-shadow 180ms ease",
+                                            "&:hover": { transform: "translateY(-4px)", boxShadow: 6 },
+                                            "&:focus-visible": { outline: "3px solid", outlineColor: "primary.main", outlineOffset: 2 },
+                                        }}
+                                    >
+                                        <CardMedia component="img" height="220" image={work.images[0]} alt={work.title} sx={{ objectFit: "cover" }} />
+                                        <CardContent sx={{ p: { xs: 2, sm: 2.5 } }}>
+                                            <Chip label={work.category} size="small" color="primary" variant="outlined" sx={{ mb: 1 }} />
+                                            <Typography variant="h6" sx={{ fontWeight: 700, lineHeight: 1.3, mb: 1 }}>
+                                                {work.title}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.65 }}>
+                                                {work.description}
+                                            </Typography>
                                         </CardContent>
                                     </Card>
                                 </Grid>
@@ -278,10 +314,10 @@ const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                                 </Box>
                             </DialogTitle>
 
-                            <DialogContent>
+                            <DialogContent sx={{ px: { xs: 2, sm: 3 }, py: { xs: 1, sm: 2 } }}>
                                 <Grid container spacing={2}>
-                                    <Grid item xs={12} md={7}>
-                                        <Paper elevation={3} sx={{ overflow: "hidden", borderRadius: 2 }}>
+                                    <Grid size={{ xs: 12, md: 7 }}>
+                                        <Paper elevation={2} sx={{ overflow: "hidden", borderRadius: 3 }}>
                                             <Box position="relative">
                                                 <Box sx={{ position: "absolute", left: 8, top: "50%", transform: "translateY(-50%)", zIndex: 10 }}>
                                                     <IconButton onClick={handlePrev} aria-label="previous image" size="small">
@@ -304,8 +340,8 @@ const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                                                                     alt={`${selectedWork.title} - Imagen ${index + 1}`}
                                                                     style={{
                                                                         width: "100%",
-                                                                        maxHeight: fullScreen ? "60vh" : 420,
-                                                                        objectFit: "cover",
+                                                                        maxHeight: fullScreen ? "48vh" : 460,
+                                                                        objectFit: "contain",
                                                                         borderRadius: 6,
                                                                     }}
                                                                     loading="lazy"
@@ -314,7 +350,7 @@ const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                                                         ))}
                                                     </Slider>
 
-                                                    <Box display="flex" justifyContent="center" alignItems="center" mt={1} gap={1} flexWrap="wrap" sx={{ px: 1 }}>
+                                                    <Box display="flex" justifyContent="flex-start" alignItems="center" mt={1} gap={1} flexWrap="nowrap" sx={{ px: 1, overflowX: "auto", py: 0.5 }}>
                                                         {selectedWork.images.map((thumb, i) => (
                                                             <Box
                                                                 key={i}
@@ -346,9 +382,9 @@ const JobsShowRoom = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivEle
                                         </Paper>
                                     </Grid>
 
-                                    <Grid item xs={12} md={5}>
+                                    <Grid size={{ xs: 12, md: 5 }}>
                                         <Typography variant="subtitle2" color="textSecondary">Descripción</Typography>
-                                        <Typography variant="body1" paragraph sx={{ textAlign: "justify" }}>
+                                        <Typography variant="body1" sx={{ textAlign: { xs: "left", sm: "justify" }, lineHeight: 1.7, mb: 2 }}>
                                             {selectedWork.description}
                                         </Typography>
 

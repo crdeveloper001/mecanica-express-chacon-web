@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
 import useResponsiveNavBar from './hooks/useResponsiveNavbar';
 import Avatar from '@mui/material/Avatar';
 import LogoPage from '../../assets/images/icons/PageLogo.png';
 import { Helmet } from 'react-helmet-async';
-import { Button, Drawer, List, ListItem } from '@mui/material';
+import { Button, Drawer, Divider, List, ListItem, ListItemButton, Typography } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
@@ -20,7 +21,7 @@ const pages = [
     { name: 'Trabajos', title: 'Trabajos - Mecánica Express Chacón', description: 'Conoce algunos de los trabajos de nuestros clientes satisfechos.', message: () => alert("Pagina en construccion") },
     { name: 'Clientes', title: 'Clientes - Mecánica Express Chacón', description: 'Conoce las historias de nuestros clientes satisfechos.' },
     { name: 'Contáctanos', title: 'Contáctanos - Mecánica Express Chacón', description: 'Estamos aquí para ayudarte. Contáctanos para más información.' },
-   
+
 ];
 
 const socialLinks = [
@@ -30,10 +31,6 @@ const socialLinks = [
 
 const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTMLElement>> }) => {
     const { currentTitle, drawerOpen, toggleDrawer, handleLinkClick } = useResponsiveNavBar();
-
-    useEffect(() => {
-        console.log("Current title:", currentTitle);
-    }, [currentTitle]);
 
     const currentPage = pages.find(page => page.title === currentTitle) || {
         title: 'Mecánica Express Chacón',
@@ -62,9 +59,9 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
             </Helmet>
 
             <AppBar position="sticky" color="default">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters sx={{ minHeight: { xs: 64, sm: 80 } }}>
                     {/* Logo */}
-                    <Avatar src={LogoPage} alt="Logo Mecánica Express" sx={{ width: 'auto', height: 100, ml: 0 }} />
+                    <Avatar src={LogoPage} alt="Logo Mecánica Express" sx={{ width: 'auto', height: { xs: 64, sm: 80 }, ml: 0 }} />
 
                     <Box sx={{ flexGrow: 1 }} />
 
@@ -110,34 +107,46 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
                     </Box>
 
                     {/* Drawer para móviles */}
-                    <Drawer anchor="right" open={drawerOpen} onClose={() => toggleDrawer(false)}>
+                    <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
                         <Box
-                            sx={{ width: 250 }}
+                            sx={{ width: { xs: 'min(85vw, 320px)', sm: 320 }, height: '100%', display: 'flex', flexDirection: 'column' }}
                             role="presentation"
-                            onClick={toggleDrawer(false)}
                             onKeyDown={(event) => {
                                 if (event.key === "Escape") {
-                                    toggleDrawer(false);
+                                    toggleDrawer(false)(event);
                                 }
                             }}
                         >
-                            <List>
+                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', px: 2, py: 1.5 }}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                                    <Avatar src={LogoPage} alt="" sx={{ width: 44, height: 44 }} />
+                                    <Typography variant="subtitle1" sx={{ fontWeight: 700, lineHeight: 1.2 }}>
+                                        Mecánica Express Chacón
+                                    </Typography>
+                                </Box>
+                                <IconButton aria-label="Cerrar menú de navegación" onClick={toggleDrawer(false)}>
+                                    <CloseIcon />
+                                </IconButton>
+                            </Box>
+                            <Divider />
+                            <List sx={{ px: 1, py: 1 }}>
                                 {pages.map((page) => (
-                                    <ListItem key={page.name} onClick={() => {
-                                        handleLinkClick(page.title);
-                                        toggleDrawer(false); // Cierra el menú al hacer clic en un elemento
-                                    }}>
-                                        <Button sx={{ textAlign: 'left', width: '100%' }} onClick={() => {
-                                            handleLinkClick(page.title);  // Cambia la página activa
+                                    <ListItem key={page.name} disablePadding>
+                                        <ListItemButton onClick={() => {
+                                            handleLinkClick(page.title);
                                             refs[page.name]?.current?.scrollIntoView({ behavior: 'smooth' });
-                                            toggleDrawer(false); // Cierra el Drawer después de la navegación
-                                        }}>
-                                            {page.name}
-                                        </Button>
+                                            toggleDrawer(false)(event);
+                                        }} sx={{ borderRadius: 1, py: 1.25 }}>
+                                            <Typography>{page.name}</Typography>
+                                        </ListItemButton>
                                     </ListItem>
                                 ))}
-                                <ListItem>
-                                    <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                            </List>
+                            <Box sx={{ mt: 'auto' }}>
+                                <Divider />
+                                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', px: 2, py: 1.5 }}>
+                                    <Typography variant="body2" color="text.secondary">Síguenos</Typography>
+                                    <Box sx={{ display: 'flex' }}>
                                         {socialLinks.map((social) => (
                                             <IconButton
                                                 key={social.name}
@@ -145,15 +154,15 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
                                                 href={social.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                sx={{ color: 'black', mx: 0.5 }}
+                                                sx={{ color: 'black', mx: 0.25 }}
                                                 aria-label={`Visitar nuestro ${social.name}`}
                                             >
                                                 {social.icon}
                                             </IconButton>
                                         ))}
                                     </Box>
-                                </ListItem>
-                            </List>
+                                </Box>
+                            </Box>
                         </Box>
                     </Drawer>
                 </Toolbar>
