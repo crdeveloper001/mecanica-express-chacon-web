@@ -132,7 +132,7 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
                             <List sx={{ px: 1, py: 1 }}>
                                 {pages.map((page) => (
                                     <ListItem key={page.name} disablePadding>
-                                        <ListItemButton onClick={() => {
+                                        <ListItemButton onClick={(event) => {
                                             handleLinkClick(page.title);
                                             refs[page.name]?.current?.scrollIntoView({ behavior: 'smooth' });
                                             toggleDrawer(false)(event);
