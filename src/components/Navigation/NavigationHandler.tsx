@@ -61,7 +61,20 @@ const NavigationHandler = ({ refs }: { refs: Record<string, React.RefObject<HTML
             <AppBar position="sticky" color="default">
                 <Toolbar disableGutters sx={{ minHeight: { xs: 64, sm: 80 } }}>
                     {/* Logo */}
-                    <Avatar src={LogoPage} alt="Logo Mecánica Express" sx={{ width: 'auto', height: { xs: 64, sm: 80 }, ml: 0 }} />
+                    <Box
+                        component="img"
+                        src={LogoPage}
+                        alt="Logo Mecánica Express"
+                        sx={{
+                            display: 'block',
+                            width: { xs: 140, sm: 180 },
+                            height: { xs: 56, sm: 72 },
+                            objectFit: 'contain',
+                            objectPosition: 'left center',
+                            flexShrink: 0,
+                            ml: 1,
+                        }}
+                    />
 
                     <Box sx={{ flexGrow: 1 }} />
 
